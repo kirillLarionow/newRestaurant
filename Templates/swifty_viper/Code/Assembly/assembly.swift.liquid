@@ -1,0 +1,34 @@
+//
+//  {{ prefix }}{{ module_info.name }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+typealias {{ module_info.name }}Module = BaseModule<{{ module_info.name }}ModuleInput, {{ module_info.name }}ModuleOutput>
+
+extension {{ module_info.name }}Module {
+    static func createModule(output: {{ module_info.name }}ModuleOutput? = nil) -> {{ module_info.name }}Module {
+        guard let controller = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "{{ module_info.name }}ViewController") as? {{ module_info.name }}ViewController else {
+            fatalError()
+        }
+        
+        let presenter = {{ module_info.name }}Presenter()
+        let interactor = {{ module_info.name }}Interactor()
+        let router = {{ module_info.name }}Router()
+
+        presenter.view = controller
+        presenter.interactor = interactor
+        presenter.router = router
+        presenter.output = output
+        
+        controller.output = presenter
+        interactor.output = presenter
+        router.output = presenter
+
+        return {{ module_info.name }}Module(view: controller, input: presenter, output: output)
+    }
+}
