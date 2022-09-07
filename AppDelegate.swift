@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,10 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let welcomePageModule = WelcomePageModule.createModule()
-        let navigationController = UINavigationController(rootViewController: welcomePageModule.view)
-        window?.rootViewController = navigationController
+        let welcomePageKey = UserDefaults.standard.bool(forKey: "welcomePage")
+        if welcomePageKey {
+            let loginPageModule = LoginPageModule.createModule()
+            let navigationController = UINavigationController(rootViewController: loginPageModule.view)
+            window?.rootViewController = navigationController
+        } else {
+            let welcomePageModule = WelcomePageModule.createModule()
+            window?.rootViewController = welcomePageModule.view
+        }
+   
+        
         window?.makeKeyAndVisible()
+        FirebaseApp.configure()
         return true
     }
 }

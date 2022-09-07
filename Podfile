@@ -18,4 +18,7 @@ target 'Restaurant' do
   pod 'SnapKit'
   pod 'YPImagePicker'
   pod 'TransitionButton'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseAuth'
+  pod 'FirebaseCore'
 end

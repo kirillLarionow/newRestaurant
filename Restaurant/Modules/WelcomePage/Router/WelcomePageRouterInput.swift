@@ -6,8 +6,7 @@
 //  Copyright © 2022 MD LCC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol WelcomePageRouterInput {
-
 }

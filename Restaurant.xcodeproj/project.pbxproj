@@ -9,49 +9,81 @@
 /* Begin PBXBuildFile section */
 		09325B02AEFA4C8BB2BFA113 /* WelcomePageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71A43FBB3AFEFE756923D3 /* WelcomePageViewOutput.swift */; };
 		1C23FB6D3FDC2F884B2EEECB /* WelcomePageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE3C277457EB4A43F209FDC /* WelcomePageViewInput.swift */; };
+		21D8C184F412E5B69CFE3CAA /* LoginPageRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63103734210E93F7F4477E3 /* LoginPageRouterOutput.swift */; };
+		22C51B8F0BC6DDB5539D64A7 /* LoginPageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BFBDFC9996A300E6C7BBB /* LoginPageInteractorInput.swift */; };
 		320799BA63B5908FBAB38A59 /* WelcomePageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DACF9DA4ABEE381791F750 /* WelcomePageRouterInput.swift */; };
 		34537FFC6135EC0767535BEE /* WelcomePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0A362E80561E5557D7C8B /* WelcomePageInteractor.swift */; };
+		35CD64473C49BF2ED4075A64 /* LoginPageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795C605C0BF91214AB61CD9 /* LoginPageViewInput.swift */; };
 		370076CDF247BE5C043A1A5A /* WelcomePageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428FF7B17DE9B63054A712A /* WelcomePageModuleInput.swift */; };
 		3E935A1B6902BE83FE50FC3F /* WelcomePageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC28C65F85F2249CAA6FD96 /* WelcomePageRouter.swift */; };
+		437024B099E5C86C9143D0E7 /* LoginPageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD81525E5F580B3A350DF7EC /* LoginPageModuleInput.swift */; };
 		45C2182A0EC3406D90E92412 /* WelcomePageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB5610789F90AA2F7D14B2 /* WelcomePageModuleOutput.swift */; };
+		4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */; };
+		4B70D5F228C3FE6A00DC317E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D5F128C3FE6900DC317E /* AppColors.swift */; };
 		4B787C5228C0D0C100A10EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B787C5128C0D0C100A10EB3 /* AppDelegate.swift */; };
 		4B787C5928C0D0C100A10EB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B787C5728C0D0C100A10EB3 /* Main.storyboard */; };
 		4B787C5B28C0D0C300A10EB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B787C5A28C0D0C300A10EB3 /* Assets.xcassets */; };
 		4B787C5E28C0D0C300A10EB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B787C5C28C0D0C300A10EB3 /* LaunchScreen.storyboard */; };
+		4B8EA8A828C53E5B00A1B366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B8EA8A728C53E5A00A1B366 /* GoogleService-Info.plist */; };
 		4BA9500628C0DC4D009CDDCF /* BaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9500528C0DC4D009CDDCF /* BaseModule.swift */; };
+		50B228C2B0AC3E9F3D332286 /* LoginPageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */; };
+		5FF522BCC25450AA493C89D5 /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28D0D3443BC395BE317723 /* LoginPageRouter.swift */; };
 		6492EEEB925BEED9C7FAB6C4 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A408AEFFAC0E2EAF97EA67 /* WelcomePageViewController.swift */; };
+		7A0D4121055C469441543E7E /* LoginPageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E95522446D353A75513D /* LoginPageModuleOutput.swift */; };
 		807E5409E1B8076CA9CDFDD3 /* Pods_Restaurant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6A63779EBC6EC8F9E122F8 /* Pods_Restaurant.framework */; };
+		92D06E603823D0AABCADE32F /* LoginPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80865A6DB6AAE096F9BF11B7 /* LoginPagePresenter.swift */; };
+		A0004F9630FA3370BD8FF1A1 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD4B293A2C730F754360E1A /* LoginPageViewController.swift */; };
+		AA923AA4B04D913BC5450DBE /* LoginPageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8719BDB0679EDE7FD8AE3CA /* LoginPageRouterInput.swift */; };
+		BA5A491ECF8EC384722E21BE /* LoginPageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB365FA1F1961F0525AADB6 /* LoginPageViewOutput.swift */; };
 		C9B75699FE1DAD85985F152C /* WelcomePageRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502DA87F4167E82AE50DD4 /* WelcomePageRouterOutput.swift */; };
+		D04BE6608817A08BAD979454 /* LoginPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE4252E64F57658A19C519 /* LoginPageInteractor.swift */; };
 		E453C013B23B0E867931ED56 /* WelcomePageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47037EDA7771559637D52B05 /* WelcomePageAssembly.swift */; };
 		EE44D568DA968652B908A599 /* WelcomePageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2D6C3C1CA167DB7E0CF17B /* WelcomePageInteractorInput.swift */; };
 		EE5C75EFEE9A8629E0571E8C /* WelcomePageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DCA958CF2DD9E3D6DD04AC /* WelcomePageInteractorOutput.swift */; };
+		F12D57FE9C227048877285DE /* LoginPageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A279841C1F60359550761 /* LoginPageInteractorOutput.swift */; };
 		F91EE3C65D260612E0FD6C0A /* WelcomePagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C547A834BFC5C3A6A19208 /* WelcomePagePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00CE4252E64F57658A19C519 /* LoginPageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractor.swift; sourceTree = "<group>"; };
 		22DACF9DA4ABEE381791F750 /* WelcomePageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouterInput.swift; sourceTree = "<group>"; };
 		3428FF7B17DE9B63054A712A /* WelcomePageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageModuleInput.swift; sourceTree = "<group>"; };
 		37DCA958CF2DD9E3D6DD04AC /* WelcomePageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractorOutput.swift; sourceTree = "<group>"; };
+		3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageAssembly.swift; sourceTree = "<group>"; };
 		47037EDA7771559637D52B05 /* WelcomePageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageAssembly.swift; sourceTree = "<group>"; };
+		4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B70D5F128C3FE6900DC317E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		4B787C4E28C0D0C100A10EB3 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B787C5128C0D0C100A10EB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B787C5828C0D0C100A10EB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B787C5A28C0D0C300A10EB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B787C5D28C0D0C300A10EB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B787C5F28C0D0C300A10EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B8EA8A728C53E5A00A1B366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4BA9500528C0DC4D009CDDCF /* BaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModule.swift; sourceTree = "<group>"; };
+		644A279841C1F60359550761 /* LoginPageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractorOutput.swift; sourceTree = "<group>"; };
 		6B71A43FBB3AFEFE756923D3 /* WelcomePageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewOutput.swift; sourceTree = "<group>"; };
+		6DB365FA1F1961F0525AADB6 /* LoginPageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewOutput.swift; sourceTree = "<group>"; };
+		80865A6DB6AAE096F9BF11B7 /* LoginPagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPagePresenter.swift; sourceTree = "<group>"; };
+		959BFBDFC9996A300E6C7BBB /* LoginPageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractorInput.swift; sourceTree = "<group>"; };
+		9795C605C0BF91214AB61CD9 /* LoginPageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewInput.swift; sourceTree = "<group>"; };
+		9A28D0D3443BC395BE317723 /* LoginPageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
 		9E08D7C84C837B15D85D96A5 /* Pods-Restaurant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant.debug.xcconfig"; path = "Target Support Files/Pods-Restaurant/Pods-Restaurant.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6A63779EBC6EC8F9E122F8 /* Pods_Restaurant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C547A834BFC5C3A6A19208 /* WelcomePagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePagePresenter.swift; sourceTree = "<group>"; };
 		ACD0A362E80561E5557D7C8B /* WelcomePageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractor.swift; sourceTree = "<group>"; };
 		AF2D6C3C1CA167DB7E0CF17B /* WelcomePageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractorInput.swift; sourceTree = "<group>"; };
+		AFD4B293A2C730F754360E1A /* LoginPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		B3DB5610789F90AA2F7D14B2 /* WelcomePageModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageModuleOutput.swift; sourceTree = "<group>"; };
 		C1A408AEFFAC0E2EAF97EA67 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		D8719BDB0679EDE7FD8AE3CA /* LoginPageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouterInput.swift; sourceTree = "<group>"; };
+		D8F3E95522446D353A75513D /* LoginPageModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageModuleOutput.swift; sourceTree = "<group>"; };
 		D9D04B1E89DE7D48EDF0BAE2 /* Pods-Restaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant.release.xcconfig"; path = "Target Support Files/Pods-Restaurant/Pods-Restaurant.release.xcconfig"; sourceTree = "<group>"; };
 		DAE3C277457EB4A43F209FDC /* WelcomePageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewInput.swift; sourceTree = "<group>"; };
 		E1502DA87F4167E82AE50DD4 /* WelcomePageRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouterOutput.swift; sourceTree = "<group>"; };
+		E63103734210E93F7F4477E3 /* LoginPageRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouterOutput.swift; sourceTree = "<group>"; };
 		FCC28C65F85F2249CAA6FD96 /* WelcomePageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouter.swift; sourceTree = "<group>"; };
+		FD81525E5F580B3A350DF7EC /* LoginPageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageModuleInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +108,16 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		05B75819EDFB786F77BC8257 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FD81525E5F580B3A350DF7EC /* LoginPageModuleInput.swift */,
+				D8F3E95522446D353A75513D /* LoginPageModuleOutput.swift */,
+				80865A6DB6AAE096F9BF11B7 /* LoginPagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		08EA7A0C8D4F3410F8BFEB75 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,10 +126,21 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		1F848F8FE466C2F7A6139699 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				959BFBDFC9996A300E6C7BBB /* LoginPageInteractorInput.swift */,
+				644A279841C1F60359550761 /* LoginPageInteractorOutput.swift */,
+				00CE4252E64F57658A19C519 /* LoginPageInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		223F9ECAC1F82844FFDCFA44 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				C2C67ADFA4135FD46EBA07E0 /* WelcomePage */,
+				465DFDA47636B16245ACBDFB /* LoginPage */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -95,6 +148,7 @@
 		3DA7AF52CFDD6EB467DA4DE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B1E5A4728C0E3A700C1C675 /* Cells */,
 				DAE3C277457EB4A43F209FDC /* WelcomePageViewInput.swift */,
 				6B71A43FBB3AFEFE756923D3 /* WelcomePageViewOutput.swift */,
 				C1A408AEFFAC0E2EAF97EA67 /* WelcomePageViewController.swift */,
@@ -102,11 +156,50 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4590093E797CBE203980943C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9795C605C0BF91214AB61CD9 /* LoginPageViewInput.swift */,
+				6DB365FA1F1961F0525AADB6 /* LoginPageViewOutput.swift */,
+				AFD4B293A2C730F754360E1A /* LoginPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		465DFDA47636B16245ACBDFB /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				4590093E797CBE203980943C /* View */,
+				05B75819EDFB786F77BC8257 /* Presenter */,
+				1F848F8FE466C2F7A6139699 /* Interactor */,
+				61DD217CF117B37D784C236E /* Router */,
+				EEA5789C680FF1BDB70DAF10 /* Assembly */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		4B1E5A4728C0E3A700C1C675 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4B70D5F028C3FE3300DC317E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4B70D5F128C3FE6900DC317E /* AppColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4B787C4528C0D0C100A10EB3 = {
 			isa = PBXGroup;
 			children = (
 				4BA9500528C0DC4D009CDDCF /* BaseModule.swift */,
 				4B787C5128C0D0C100A10EB3 /* AppDelegate.swift */,
+				4B8EA8A728C53E5A00A1B366 /* GoogleService-Info.plist */,
 				4B787C5028C0D0C100A10EB3 /* Restaurant */,
 				4B787C4F28C0D0C100A10EB3 /* Products */,
 				9C5D6FE1939AFA8E24A7F2D3 /* Pods */,
@@ -125,6 +218,7 @@
 		4B787C5028C0D0C100A10EB3 /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				4B70D5F028C3FE3300DC317E /* Extensions */,
 				223F9ECAC1F82844FFDCFA44 /* Modules */,
 				4BA9500728C0E087009CDDCF /* StoryBoards */,
 				4BA9500828C0E091009CDDCF /* Assets */,
@@ -148,6 +242,16 @@
 				4B787C5A28C0D0C300A10EB3 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		61DD217CF117B37D784C236E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				D8719BDB0679EDE7FD8AE3CA /* LoginPageRouterInput.swift */,
+				E63103734210E93F7F4477E3 /* LoginPageRouterOutput.swift */,
+				9A28D0D3443BC395BE317723 /* LoginPageRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		6C82D0BE8322A894227CC04D /* Frameworks */ = {
@@ -197,6 +301,14 @@
 				FCC28C65F85F2249CAA6FD96 /* WelcomePageRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		EEA5789C680FF1BDB70DAF10 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B787C5E28C0D0C300A10EB3 /* LaunchScreen.storyboard in Resources */,
+				4B8EA8A828C53E5B00A1B366 /* GoogleService-Info.plist in Resources */,
 				4B787C5B28C0D0C300A10EB3 /* Assets.xcassets in Resources */,
 				4B787C5928C0D0C100A10EB3 /* Main.storyboard in Resources */,
 			);
@@ -327,8 +440,23 @@
 				34537FFC6135EC0767535BEE /* WelcomePageInteractor.swift in Sources */,
 				320799BA63B5908FBAB38A59 /* WelcomePageRouterInput.swift in Sources */,
 				C9B75699FE1DAD85985F152C /* WelcomePageRouterOutput.swift in Sources */,
+				4B70D5F228C3FE6A00DC317E /* AppColors.swift in Sources */,
 				3E935A1B6902BE83FE50FC3F /* WelcomePageRouter.swift in Sources */,
+				4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */,
 				E453C013B23B0E867931ED56 /* WelcomePageAssembly.swift in Sources */,
+				35CD64473C49BF2ED4075A64 /* LoginPageViewInput.swift in Sources */,
+				BA5A491ECF8EC384722E21BE /* LoginPageViewOutput.swift in Sources */,
+				A0004F9630FA3370BD8FF1A1 /* LoginPageViewController.swift in Sources */,
+				437024B099E5C86C9143D0E7 /* LoginPageModuleInput.swift in Sources */,
+				7A0D4121055C469441543E7E /* LoginPageModuleOutput.swift in Sources */,
+				92D06E603823D0AABCADE32F /* LoginPagePresenter.swift in Sources */,
+				22C51B8F0BC6DDB5539D64A7 /* LoginPageInteractorInput.swift in Sources */,
+				F12D57FE9C227048877285DE /* LoginPageInteractorOutput.swift in Sources */,
+				D04BE6608817A08BAD979454 /* LoginPageInteractor.swift in Sources */,
+				AA923AA4B04D913BC5450DBE /* LoginPageRouterInput.swift in Sources */,
+				21D8C184F412E5B69CFE3CAA /* LoginPageRouterOutput.swift in Sources */,
+				5FF522BCC25450AA493C89D5 /* LoginPageRouter.swift in Sources */,
+				50B228C2B0AC3E9F3D332286 /* LoginPageAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

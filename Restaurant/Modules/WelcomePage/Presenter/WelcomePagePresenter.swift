@@ -18,7 +18,6 @@ extension WelcomePagePresenter: WelcomePageModuleInput {
 }
 
 extension WelcomePagePresenter: WelcomePageViewOutput {
-
 }
 
 extension WelcomePagePresenter: WelcomePageInteractorOutput {
