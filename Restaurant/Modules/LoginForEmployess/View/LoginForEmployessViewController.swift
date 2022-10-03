@@ -11,6 +11,11 @@ import FirebaseAuth
 import SnapKit
 
 class LoginForEmployessViewController: UIViewController {
+    private lazy var loginForEmployeesImage: UIImageView = {
+        let loginForEmployeesImage = UIImageView()
+        loginForEmployeesImage.image = UIImage(named: "loginEmployeesImage")
+        return loginForEmployeesImage
+    }()
     
     private lazy var loginTextFieldStackView: UIStackView = {
         let loginTextFieldStackView = UIStackView()
@@ -112,6 +117,7 @@ class LoginForEmployessViewController: UIViewController {
     }
     
     private func setupView() {
+        view.addSubview(loginForEmployeesImage)
         view.addSubview(loginTextFieldStackView)
         view.addSubview(loginButton)
         view.addSubview(errorLoginLabel)
@@ -120,9 +126,17 @@ class LoginForEmployessViewController: UIViewController {
         errorLabel.isHidden = true
         errorLoginLabel.isHidden = true
         
+        loginForEmployeesImage.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(150)
+            make.height.equalTo(150)
+            make.width.equalTo(180)
+            
+        }
         
         loginTextFieldStackView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(loginForEmployeesImage.snp.bottom).offset(20)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
