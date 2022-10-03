@@ -6,6 +6,9 @@
 //  Copyright © 2022 MD LCC. All rights reserved.
 //
 
+import UIKit
+
+
 class LoginPagePresenter {
     var output: LoginPageModuleOutput?
     var view: LoginPageViewInput?
@@ -33,10 +36,16 @@ extension LoginPagePresenter: LoginPageViewOutput {
         
         router?.pushToLoginForEmployeesModule(navigationController: navigationController)
     }
+    
+     func loginIn(email: String, password: String) {
+         interactor?.loginIn(email: email, password: password)
+    }
 }
 
 extension LoginPagePresenter: LoginPageInteractorOutput {
-
+    func sendError(error: String) {
+        view?.updateErrorMessage(error: error)
+    }
 }
 
 extension LoginPagePresenter: LoginPageRouterOutput {

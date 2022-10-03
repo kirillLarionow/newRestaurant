@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseCore
 import SnapKit
 
 class LoginPageViewController: UIViewController {
@@ -41,9 +39,8 @@ class LoginPageViewController: UIViewController {
         registrationTextFieldStackView.spacing = 10
         registrationTextFieldStackView.axis = .vertical
         registrationTextFieldStackView.addArrangedSubview(loginEmailTextField)
-        registrationTextFieldStackView.addArrangedSubview(errorEmailLabel)
         registrationTextFieldStackView.addArrangedSubview(passwordTextField)
-        registrationTextFieldStackView.addArrangedSubview(errorPasswordLabel)
+        registrationTextFieldStackView.addArrangedSubview(errorLabel)
         return registrationTextFieldStackView
     }()
     
@@ -56,15 +53,6 @@ class LoginPageViewController: UIViewController {
         loginEmailTextField.backgroundColor = .systemGray6
         loginEmailTextField.autocapitalizationType = .none
         return loginEmailTextField
-    }()
-    
-    private lazy var errorEmailLabel: UILabel = {
-        let errorEmailLabel = UILabel()
-        errorEmailLabel.numberOfLines = 0
-        errorEmailLabel.textColor = AppColor.Theme
-        errorEmailLabel.textAlignment = .center
-        errorEmailLabel.font = UIFont.init(name: "Helvetica-BoldOblique", size: 12)
-        return errorEmailLabel
     }()
     
     private lazy var passwordTextField: UITextField = {
@@ -82,7 +70,7 @@ class LoginPageViewController: UIViewController {
         return passwordTextField
     }()
     
-    private lazy var errorPasswordLabel: UILabel = {
+    private lazy var errorLabel: UILabel = {
         let errorPasswordLabel = UILabel()
         errorPasswordLabel.numberOfLines = 0
         errorPasswordLabel.textColor = AppColor.Theme
@@ -168,8 +156,7 @@ class LoginPageViewController: UIViewController {
         view.addSubview(fogotPasswordLabel)
         view.addSubview(registrationButton)
         
-        errorEmailLabel.isHidden = true
-        errorPasswordLabel.isHidden = true
+        errorLabel.isHidden = true
         
         titleLabel.snp.makeConstraints { make in
             make.leading.top.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -267,48 +254,19 @@ extension LoginPageViewController {
         guard
             let email = loginEmailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-            errorPasswordLabel.isHidden = false
-            errorPasswordLabel.text = "Заполните поля"
+            errorLabel.isHidden = false
+            errorLabel.text = "Заполните поля"
             return
         }
         
+        errorLabel.isHidden = true
+        
         let isLoginEmployee = email.contains("emp.emp")
-        
-        errorEmailLabel.isHidden = true
-        errorPasswordLabel.isHidden = true
-        
         if isLoginEmployee {
-            errorEmailLabel.isHidden = false
-            errorEmailLabel.text = "Вход сотрудникам через кнопку 'Войти как сотрудник'"
-            
+            errorLabel.isHidden = false
+            errorLabel.text = "Вход сотрудникам через кнопку ' Войти как сотрудник '"
         } else {
-            loginIn(email: email, password: password)
-        }
-        
-    }
-    
-    private func loginIn(email: String, password: String) {
-        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { user, error in
-            if error != nil, let error = error as NSError? {
-                if let errorCode = AuthErrorCode(rawValue: error.code) {
-                    switch errorCode {
-                    case .invalidEmail:
-                        self.errorEmailLabel.text = "Некорректный email"
-                        self.errorEmailLabel.isHidden = false
-                    case .wrongPassword:
-                        self.errorPasswordLabel.isHidden = false
-                        self.errorPasswordLabel.text = "Неправильный пароль или логин"
-                    case .userNotFound:
-                        self.errorEmailLabel.text = "Такого пользователя нет"
-                        self.errorEmailLabel.isHidden = false
-                    default:
-                        break
-                    }
-                }
-            } else {
-                print("succes login from FireBase")
-                
-            }
+            output?.loginIn(email: email, password: password)
         }
     }
     
@@ -318,5 +276,8 @@ extension LoginPageViewController {
 }
 
 extension LoginPageViewController: LoginPageViewInput {
-
+    func updateErrorMessage(error: String) {
+        errorLabel.isHidden = false
+        errorLabel.text = error
+    }
 }

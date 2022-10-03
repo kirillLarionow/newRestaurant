@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LoginPageInteractorOutput {
-
+    func sendError(error: String)
 }

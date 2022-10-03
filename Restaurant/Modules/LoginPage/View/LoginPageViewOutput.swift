@@ -9,4 +9,5 @@
 protocol LoginPageViewOutput {
     func registrationButtonDidTap()
     func loginForEmployeesDidTap()
+    func loginIn(email: String, password: String)
 }

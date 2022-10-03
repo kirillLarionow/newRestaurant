@@ -9,4 +9,6 @@ import UIKit
 
 protocol LoginPageViewInput {
     var navigationController: UINavigationController? { get }
+    
+    func updateErrorMessage(error: String)
 }
