@@ -18,7 +18,21 @@ extension LoginPagePresenter: LoginPageModuleInput {
 }
 
 extension LoginPagePresenter: LoginPageViewOutput {
-
+    func registrationButtonDidTap() {
+        guard let navigationController = view?.navigationController else {
+            fatalError("controller is not navigation controller")
+        }
+        
+        router?.pushToRegistrationPageModule(navigationController: navigationController)
+    }
+    
+    func loginForEmployeesDidTap() {
+        guard let navigationController = view?.navigationController else {
+            fatalError("controller is not navigation controller")
+        }
+        
+        router?.pushToLoginForEmployeesModule(navigationController: navigationController)
+    }
 }
 
 extension LoginPagePresenter: LoginPageInteractorOutput {

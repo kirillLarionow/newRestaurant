@@ -8,14 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		09325B02AEFA4C8BB2BFA113 /* WelcomePageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B71A43FBB3AFEFE756923D3 /* WelcomePageViewOutput.swift */; };
+		0B6A645EFDDA6115BD0B67F7 /* LoginForEmployessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFCD65BD453A2B8F78CA896 /* LoginForEmployessViewController.swift */; };
+		11852C35311BF2DA61CDEF17 /* RegistrationPageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480B56CABF87E7DD5364E18 /* RegistrationPageViewOutput.swift */; };
+		1656F97EAAF0ED5DB0F04801 /* LoginForEmployessRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD85A34428C256BF656CD /* LoginForEmployessRouterInput.swift */; };
+		1A2B311CEB2ED1AA373D6631 /* RegistrationPageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4546E29E10FDA9C46DA6C71B /* RegistrationPageModuleInput.swift */; };
+		1BAEF53CD182407A1AB54347 /* RegistrationPageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B965F797A81B3AC1D266B338 /* RegistrationPageRouterInput.swift */; };
 		1C23FB6D3FDC2F884B2EEECB /* WelcomePageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE3C277457EB4A43F209FDC /* WelcomePageViewInput.swift */; };
+		1E9546418173EE8EF4F0E292 /* RegistrationPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E80DEF150741D1B592E9D30 /* RegistrationPageInteractor.swift */; };
 		21D8C184F412E5B69CFE3CAA /* LoginPageRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63103734210E93F7F4477E3 /* LoginPageRouterOutput.swift */; };
 		22C51B8F0BC6DDB5539D64A7 /* LoginPageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959BFBDFC9996A300E6C7BBB /* LoginPageInteractorInput.swift */; };
+		26A67F9C04D0C195D741C192 /* RegistrationPageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1EB96467D12C3181AB4121 /* RegistrationPageInteractorInput.swift */; };
 		320799BA63B5908FBAB38A59 /* WelcomePageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DACF9DA4ABEE381791F750 /* WelcomePageRouterInput.swift */; };
 		34537FFC6135EC0767535BEE /* WelcomePageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD0A362E80561E5557D7C8B /* WelcomePageInteractor.swift */; };
 		35CD64473C49BF2ED4075A64 /* LoginPageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9795C605C0BF91214AB61CD9 /* LoginPageViewInput.swift */; };
 		370076CDF247BE5C043A1A5A /* WelcomePageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428FF7B17DE9B63054A712A /* WelcomePageModuleInput.swift */; };
+		37B543C733F7F744D41BB35A /* LoginForEmployessViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F45575CAC83A953B042F98 /* LoginForEmployessViewOutput.swift */; };
 		3E935A1B6902BE83FE50FC3F /* WelcomePageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC28C65F85F2249CAA6FD96 /* WelcomePageRouter.swift */; };
+		3EDC09FC9C37D33727B36E40 /* RegistrationPageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932F44DBF08A14CAA333D31C /* RegistrationPageInteractorOutput.swift */; };
+		40B7F6935AADA7039C39CBC2 /* LoginForEmployessAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466DD54284830E4DF51EC6A /* LoginForEmployessAssembly.swift */; };
 		437024B099E5C86C9143D0E7 /* LoginPageModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD81525E5F580B3A350DF7EC /* LoginPageModuleInput.swift */; };
 		45C2182A0EC3406D90E92412 /* WelcomePageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DB5610789F90AA2F7D14B2 /* WelcomePageModuleOutput.swift */; };
 		4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */; };
@@ -27,29 +37,52 @@
 		4B8EA8A828C53E5B00A1B366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B8EA8A728C53E5A00A1B366 /* GoogleService-Info.plist */; };
 		4BA9500628C0DC4D009CDDCF /* BaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9500528C0DC4D009CDDCF /* BaseModule.swift */; };
 		50B228C2B0AC3E9F3D332286 /* LoginPageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */; };
+		577B4FAAA9CF808C9214B4DE /* RegistrationPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5155261691175EA04EB350E /* RegistrationPageRouter.swift */; };
+		58C70CB636A03AE421E5F79D /* RegistrationPageRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A95CA2D31ACF52405FFD94 /* RegistrationPageRouterOutput.swift */; };
+		5F529F4B65B9D2EA0E8647E2 /* LoginForEmployessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154E85E197449CC519DBA883 /* LoginForEmployessRouter.swift */; };
 		5FF522BCC25450AA493C89D5 /* LoginPageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28D0D3443BC395BE317723 /* LoginPageRouter.swift */; };
 		6492EEEB925BEED9C7FAB6C4 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A408AEFFAC0E2EAF97EA67 /* WelcomePageViewController.swift */; };
+		728FDBEA5D17007E47FAE4DD /* LoginForEmployessModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82482B064E156BAC1852FC7 /* LoginForEmployessModuleOutput.swift */; };
+		79F3D46223CAE00AFEF305B5 /* LoginForEmployessPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841F0A129B0A00457C786CD9 /* LoginForEmployessPresenter.swift */; };
 		7A0D4121055C469441543E7E /* LoginPageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F3E95522446D353A75513D /* LoginPageModuleOutput.swift */; };
 		807E5409E1B8076CA9CDFDD3 /* Pods_Restaurant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6A63779EBC6EC8F9E122F8 /* Pods_Restaurant.framework */; };
+		8F9351A966C04754AD7C5E0A /* LoginForEmployessModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D643728928A610D22D18D47D /* LoginForEmployessModuleInput.swift */; };
 		92D06E603823D0AABCADE32F /* LoginPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80865A6DB6AAE096F9BF11B7 /* LoginPagePresenter.swift */; };
+		936470D5C26CE1A878F8E26A /* RegistrationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E731225F5A455B6AABFFA /* RegistrationPageViewController.swift */; };
+		9AB9E4CD6E9A4269A0ADAFBC /* RegistrationPageViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1CE95E17CA3F48A2DD6DD4 /* RegistrationPageViewInput.swift */; };
 		A0004F9630FA3370BD8FF1A1 /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD4B293A2C730F754360E1A /* LoginPageViewController.swift */; };
 		AA923AA4B04D913BC5450DBE /* LoginPageRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8719BDB0679EDE7FD8AE3CA /* LoginPageRouterInput.swift */; };
+		AD9DB7A4009092BEAC5B3D9F /* RegistrationPageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FFCA93720A91786FC0B148 /* RegistrationPageAssembly.swift */; };
+		B686BCA18E37DD521FFD8AFE /* RegistrationPageModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB59332DF7E81147550CD891 /* RegistrationPageModuleOutput.swift */; };
+		B70BBC438419C25CAD5BC3E6 /* LoginForEmployessInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EAE77D6D6ED07322C780F7 /* LoginForEmployessInteractorInput.swift */; };
 		BA5A491ECF8EC384722E21BE /* LoginPageViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB365FA1F1961F0525AADB6 /* LoginPageViewOutput.swift */; };
 		C9B75699FE1DAD85985F152C /* WelcomePageRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1502DA87F4167E82AE50DD4 /* WelcomePageRouterOutput.swift */; };
+		CD882B410E566055DECE7833 /* RegistrationPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FCA298C9173EFEFC8DEEF /* RegistrationPagePresenter.swift */; };
 		D04BE6608817A08BAD979454 /* LoginPageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE4252E64F57658A19C519 /* LoginPageInteractor.swift */; };
+		DDC7C4C227121BBDA0BD149F /* LoginForEmployessInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8A27303D66D744B4D1F5A5 /* LoginForEmployessInteractor.swift */; };
 		E453C013B23B0E867931ED56 /* WelcomePageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47037EDA7771559637D52B05 /* WelcomePageAssembly.swift */; };
 		EE44D568DA968652B908A599 /* WelcomePageInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2D6C3C1CA167DB7E0CF17B /* WelcomePageInteractorInput.swift */; };
 		EE5C75EFEE9A8629E0571E8C /* WelcomePageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DCA958CF2DD9E3D6DD04AC /* WelcomePageInteractorOutput.swift */; };
+		EF265D6EF9C88C66105839DD /* LoginForEmployessRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7D0CCBCE142095371223B /* LoginForEmployessRouterOutput.swift */; };
 		F12D57FE9C227048877285DE /* LoginPageInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644A279841C1F60359550761 /* LoginPageInteractorOutput.swift */; };
+		F139D9ECD4139E22C4FAAEAF /* LoginForEmployessViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727CD35EEE82174672B9437D /* LoginForEmployessViewInput.swift */; };
 		F91EE3C65D260612E0FD6C0A /* WelcomePagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C547A834BFC5C3A6A19208 /* WelcomePagePresenter.swift */; };
+		FAF631351B7CA4BA85F8A878 /* LoginForEmployessInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FCE54B61D25FBAE63586 /* LoginForEmployessInteractorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00CE4252E64F57658A19C519 /* LoginPageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractor.swift; sourceTree = "<group>"; };
+		0EFCD65BD453A2B8F78CA896 /* LoginForEmployessViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessViewController.swift; sourceTree = "<group>"; };
+		154E85E197449CC519DBA883 /* LoginForEmployessRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessRouter.swift; sourceTree = "<group>"; };
+		18EAE77D6D6ED07322C780F7 /* LoginForEmployessInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessInteractorInput.swift; sourceTree = "<group>"; };
 		22DACF9DA4ABEE381791F750 /* WelcomePageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouterInput.swift; sourceTree = "<group>"; };
+		2ED7D0CCBCE142095371223B /* LoginForEmployessRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessRouterOutput.swift; sourceTree = "<group>"; };
+		2F1CE95E17CA3F48A2DD6DD4 /* RegistrationPageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewInput.swift; sourceTree = "<group>"; };
 		3428FF7B17DE9B63054A712A /* WelcomePageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageModuleInput.swift; sourceTree = "<group>"; };
+		351FCA298C9173EFEFC8DEEF /* RegistrationPagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPagePresenter.swift; sourceTree = "<group>"; };
 		37DCA958CF2DD9E3D6DD04AC /* WelcomePageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractorOutput.swift; sourceTree = "<group>"; };
 		3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageAssembly.swift; sourceTree = "<group>"; };
+		4546E29E10FDA9C46DA6C71B /* RegistrationPageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageModuleInput.swift; sourceTree = "<group>"; };
 		47037EDA7771559637D52B05 /* WelcomePageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageAssembly.swift; sourceTree = "<group>"; };
 		4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B70D5F128C3FE6900DC317E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -61,29 +94,48 @@
 		4B787C5F28C0D0C300A10EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8EA8A728C53E5A00A1B366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4BA9500528C0DC4D009CDDCF /* BaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModule.swift; sourceTree = "<group>"; };
+		603BD85A34428C256BF656CD /* LoginForEmployessRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessRouterInput.swift; sourceTree = "<group>"; };
 		644A279841C1F60359550761 /* LoginPageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractorOutput.swift; sourceTree = "<group>"; };
+		6480B56CABF87E7DD5364E18 /* RegistrationPageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewOutput.swift; sourceTree = "<group>"; };
 		6B71A43FBB3AFEFE756923D3 /* WelcomePageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewOutput.swift; sourceTree = "<group>"; };
 		6DB365FA1F1961F0525AADB6 /* LoginPageViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewOutput.swift; sourceTree = "<group>"; };
+		727CD35EEE82174672B9437D /* LoginForEmployessViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessViewInput.swift; sourceTree = "<group>"; };
+		7E80DEF150741D1B592E9D30 /* RegistrationPageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageInteractor.swift; sourceTree = "<group>"; };
 		80865A6DB6AAE096F9BF11B7 /* LoginPagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPagePresenter.swift; sourceTree = "<group>"; };
+		841F0A129B0A00457C786CD9 /* LoginForEmployessPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessPresenter.swift; sourceTree = "<group>"; };
+		84F45575CAC83A953B042F98 /* LoginForEmployessViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessViewOutput.swift; sourceTree = "<group>"; };
+		90D0FCE54B61D25FBAE63586 /* LoginForEmployessInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessInteractorOutput.swift; sourceTree = "<group>"; };
+		932F44DBF08A14CAA333D31C /* RegistrationPageInteractorOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageInteractorOutput.swift; sourceTree = "<group>"; };
 		959BFBDFC9996A300E6C7BBB /* LoginPageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageInteractorInput.swift; sourceTree = "<group>"; };
 		9795C605C0BF91214AB61CD9 /* LoginPageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewInput.swift; sourceTree = "<group>"; };
 		9A28D0D3443BC395BE317723 /* LoginPageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouter.swift; sourceTree = "<group>"; };
 		9E08D7C84C837B15D85D96A5 /* Pods-Restaurant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant.debug.xcconfig"; path = "Target Support Files/Pods-Restaurant/Pods-Restaurant.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6A63779EBC6EC8F9E122F8 /* Pods_Restaurant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Restaurant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C547A834BFC5C3A6A19208 /* WelcomePagePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePagePresenter.swift; sourceTree = "<group>"; };
+		A5155261691175EA04EB350E /* RegistrationPageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageRouter.swift; sourceTree = "<group>"; };
+		A82482B064E156BAC1852FC7 /* LoginForEmployessModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessModuleOutput.swift; sourceTree = "<group>"; };
 		ACD0A362E80561E5557D7C8B /* WelcomePageInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractor.swift; sourceTree = "<group>"; };
 		AF2D6C3C1CA167DB7E0CF17B /* WelcomePageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageInteractorInput.swift; sourceTree = "<group>"; };
 		AFD4B293A2C730F754360E1A /* LoginPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		B3DB5610789F90AA2F7D14B2 /* WelcomePageModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageModuleOutput.swift; sourceTree = "<group>"; };
+		B965F797A81B3AC1D266B338 /* RegistrationPageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageRouterInput.swift; sourceTree = "<group>"; };
+		BC8A27303D66D744B4D1F5A5 /* LoginForEmployessInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessInteractor.swift; sourceTree = "<group>"; };
 		C1A408AEFFAC0E2EAF97EA67 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		CB59332DF7E81147550CD891 /* RegistrationPageModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageModuleOutput.swift; sourceTree = "<group>"; };
+		D466DD54284830E4DF51EC6A /* LoginForEmployessAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessAssembly.swift; sourceTree = "<group>"; };
+		D643728928A610D22D18D47D /* LoginForEmployessModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginForEmployessModuleInput.swift; sourceTree = "<group>"; };
+		D86E731225F5A455B6AABFFA /* RegistrationPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageViewController.swift; sourceTree = "<group>"; };
 		D8719BDB0679EDE7FD8AE3CA /* LoginPageRouterInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouterInput.swift; sourceTree = "<group>"; };
 		D8F3E95522446D353A75513D /* LoginPageModuleOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageModuleOutput.swift; sourceTree = "<group>"; };
 		D9D04B1E89DE7D48EDF0BAE2 /* Pods-Restaurant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Restaurant.release.xcconfig"; path = "Target Support Files/Pods-Restaurant/Pods-Restaurant.release.xcconfig"; sourceTree = "<group>"; };
 		DAE3C277457EB4A43F209FDC /* WelcomePageViewInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageViewInput.swift; sourceTree = "<group>"; };
 		E1502DA87F4167E82AE50DD4 /* WelcomePageRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouterOutput.swift; sourceTree = "<group>"; };
 		E63103734210E93F7F4477E3 /* LoginPageRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageRouterOutput.swift; sourceTree = "<group>"; };
+		E6FFCA93720A91786FC0B148 /* RegistrationPageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageAssembly.swift; sourceTree = "<group>"; };
+		F9A95CA2D31ACF52405FFD94 /* RegistrationPageRouterOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageRouterOutput.swift; sourceTree = "<group>"; };
 		FCC28C65F85F2249CAA6FD96 /* WelcomePageRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageRouter.swift; sourceTree = "<group>"; };
 		FD81525E5F580B3A350DF7EC /* LoginPageModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginPageModuleInput.swift; sourceTree = "<group>"; };
+		FE1EB96467D12C3181AB4121 /* RegistrationPageInteractorInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RegistrationPageInteractorInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +150,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00DDF9A20309A1BA471F287F /* RegistrationPage */ = {
+			isa = PBXGroup;
+			children = (
+				65536AB9D0151EC903ACD1E5 /* View */,
+				E2E94B43DC7C51AA04588F2C /* Presenter */,
+				2202E16B54C13F1FDF614A37 /* Interactor */,
+				F9CEC7F65D6B9B90CB69D4D8 /* Router */,
+				15B9BB3A1995AF8406951BDC /* Assembly */,
+			);
+			path = RegistrationPage;
+			sourceTree = "<group>";
+		};
 		04ACC54D4CA3C7C2D33225E9 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +190,25 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		147B8B41A91BC33828E1D443 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				727CD35EEE82174672B9437D /* LoginForEmployessViewInput.swift */,
+				84F45575CAC83A953B042F98 /* LoginForEmployessViewOutput.swift */,
+				0EFCD65BD453A2B8F78CA896 /* LoginForEmployessViewController.swift */,
+			);
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		15B9BB3A1995AF8406951BDC /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				E6FFCA93720A91786FC0B148 /* RegistrationPageAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		1F848F8FE466C2F7A6139699 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,13 +219,38 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2202E16B54C13F1FDF614A37 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FE1EB96467D12C3181AB4121 /* RegistrationPageInteractorInput.swift */,
+				932F44DBF08A14CAA333D31C /* RegistrationPageInteractorOutput.swift */,
+				7E80DEF150741D1B592E9D30 /* RegistrationPageInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		223F9ECAC1F82844FFDCFA44 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				C2C67ADFA4135FD46EBA07E0 /* WelcomePage */,
 				465DFDA47636B16245ACBDFB /* LoginPage */,
+				00DDF9A20309A1BA471F287F /* RegistrationPage */,
+				328D638C9C45C8474F230EE5 /* LoginForEmployess */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		328D638C9C45C8474F230EE5 /* LoginForEmployess */ = {
+			isa = PBXGroup;
+			children = (
+				147B8B41A91BC33828E1D443 /* View */,
+				53608F155EA7B2E434837246 /* Presenter */,
+				838639783E3AF21573574922 /* Interactor */,
+				F7BD46786A0D270D17B89ECE /* Router */,
+				4A6A46A116FA7954D336DED1 /* Assembly */,
+			);
+			name = LoginForEmployess;
+			path = LoginForEmployess;
 			sourceTree = "<group>";
 		};
 		3DA7AF52CFDD6EB467DA4DE5 /* View */ = {
@@ -176,6 +284,15 @@
 				EEA5789C680FF1BDB70DAF10 /* Assembly */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		4A6A46A116FA7954D336DED1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				D466DD54284830E4DF51EC6A /* LoginForEmployessAssembly.swift */,
+			);
+			name = Assembly;
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		4B1E5A4728C0E3A700C1C675 /* Cells */ = {
@@ -244,6 +361,17 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		53608F155EA7B2E434837246 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				D643728928A610D22D18D47D /* LoginForEmployessModuleInput.swift */,
+				A82482B064E156BAC1852FC7 /* LoginForEmployessModuleOutput.swift */,
+				841F0A129B0A00457C786CD9 /* LoginForEmployessPresenter.swift */,
+			);
+			name = Presenter;
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		61DD217CF117B37D784C236E /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,12 +382,33 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		65536AB9D0151EC903ACD1E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F1CE95E17CA3F48A2DD6DD4 /* RegistrationPageViewInput.swift */,
+				6480B56CABF87E7DD5364E18 /* RegistrationPageViewOutput.swift */,
+				D86E731225F5A455B6AABFFA /* RegistrationPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		6C82D0BE8322A894227CC04D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9F6A63779EBC6EC8F9E122F8 /* Pods_Restaurant.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		838639783E3AF21573574922 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				18EAE77D6D6ED07322C780F7 /* LoginForEmployessInteractorInput.swift */,
+				90D0FCE54B61D25FBAE63586 /* LoginForEmployessInteractorOutput.swift */,
+				BC8A27303D66D744B4D1F5A5 /* LoginForEmployessInteractor.swift */,
+			);
+			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		9C5D6FE1939AFA8E24A7F2D3 /* Pods */ = {
@@ -293,6 +442,16 @@
 			path = WelcomePage;
 			sourceTree = "<group>";
 		};
+		E2E94B43DC7C51AA04588F2C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4546E29E10FDA9C46DA6C71B /* RegistrationPageModuleInput.swift */,
+				CB59332DF7E81147550CD891 /* RegistrationPageModuleOutput.swift */,
+				351FCA298C9173EFEFC8DEEF /* RegistrationPagePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		EC718A51F7E67A38522ACB96 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +468,27 @@
 				3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		F7BD46786A0D270D17B89ECE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				603BD85A34428C256BF656CD /* LoginForEmployessRouterInput.swift */,
+				2ED7D0CCBCE142095371223B /* LoginForEmployessRouterOutput.swift */,
+				154E85E197449CC519DBA883 /* LoginForEmployessRouter.swift */,
+			);
+			name = Router;
+			path = Router;
+			sourceTree = "<group>";
+		};
+		F9CEC7F65D6B9B90CB69D4D8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B965F797A81B3AC1D266B338 /* RegistrationPageRouterInput.swift */,
+				F9A95CA2D31ACF52405FFD94 /* RegistrationPageRouterOutput.swift */,
+				A5155261691175EA04EB350E /* RegistrationPageRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +637,32 @@
 				21D8C184F412E5B69CFE3CAA /* LoginPageRouterOutput.swift in Sources */,
 				5FF522BCC25450AA493C89D5 /* LoginPageRouter.swift in Sources */,
 				50B228C2B0AC3E9F3D332286 /* LoginPageAssembly.swift in Sources */,
+				9AB9E4CD6E9A4269A0ADAFBC /* RegistrationPageViewInput.swift in Sources */,
+				11852C35311BF2DA61CDEF17 /* RegistrationPageViewOutput.swift in Sources */,
+				936470D5C26CE1A878F8E26A /* RegistrationPageViewController.swift in Sources */,
+				1A2B311CEB2ED1AA373D6631 /* RegistrationPageModuleInput.swift in Sources */,
+				B686BCA18E37DD521FFD8AFE /* RegistrationPageModuleOutput.swift in Sources */,
+				CD882B410E566055DECE7833 /* RegistrationPagePresenter.swift in Sources */,
+				26A67F9C04D0C195D741C192 /* RegistrationPageInteractorInput.swift in Sources */,
+				3EDC09FC9C37D33727B36E40 /* RegistrationPageInteractorOutput.swift in Sources */,
+				1E9546418173EE8EF4F0E292 /* RegistrationPageInteractor.swift in Sources */,
+				1BAEF53CD182407A1AB54347 /* RegistrationPageRouterInput.swift in Sources */,
+				58C70CB636A03AE421E5F79D /* RegistrationPageRouterOutput.swift in Sources */,
+				577B4FAAA9CF808C9214B4DE /* RegistrationPageRouter.swift in Sources */,
+				AD9DB7A4009092BEAC5B3D9F /* RegistrationPageAssembly.swift in Sources */,
+				F139D9ECD4139E22C4FAAEAF /* LoginForEmployessViewInput.swift in Sources */,
+				37B543C733F7F744D41BB35A /* LoginForEmployessViewOutput.swift in Sources */,
+				0B6A645EFDDA6115BD0B67F7 /* LoginForEmployessViewController.swift in Sources */,
+				8F9351A966C04754AD7C5E0A /* LoginForEmployessModuleInput.swift in Sources */,
+				728FDBEA5D17007E47FAE4DD /* LoginForEmployessModuleOutput.swift in Sources */,
+				79F3D46223CAE00AFEF305B5 /* LoginForEmployessPresenter.swift in Sources */,
+				B70BBC438419C25CAD5BC3E6 /* LoginForEmployessInteractorInput.swift in Sources */,
+				FAF631351B7CA4BA85F8A878 /* LoginForEmployessInteractorOutput.swift in Sources */,
+				DDC7C4C227121BBDA0BD149F /* LoginForEmployessInteractor.swift in Sources */,
+				1656F97EAAF0ED5DB0F04801 /* LoginForEmployessRouterInput.swift in Sources */,
+				EF265D6EF9C88C66105839DD /* LoginForEmployessRouterOutput.swift in Sources */,
+				5F529F4B65B9D2EA0E8647E2 /* LoginForEmployessRouter.swift in Sources */,
+				40B7F6935AADA7039C39CBC2 /* LoginForEmployessAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

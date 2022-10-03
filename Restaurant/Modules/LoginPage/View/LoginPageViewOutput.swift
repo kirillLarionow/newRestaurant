@@ -7,5 +7,6 @@
 //
 
 protocol LoginPageViewOutput {
-
+    func registrationButtonDidTap()
+    func loginForEmployeesDidTap()
 }

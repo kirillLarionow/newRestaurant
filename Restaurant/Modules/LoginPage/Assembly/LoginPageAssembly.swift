@@ -25,7 +25,9 @@ extension LoginPageModule {
         controller.output = presenter
         interactor.output = presenter
         router.output = presenter
-
-        return LoginPageModule(view: controller, input: presenter, output: output)
+        
+        let navigationController = UINavigationController(rootViewController: controller)
+        
+        return LoginPageModule(view: navigationController, input: presenter, output: output)
     }
 }

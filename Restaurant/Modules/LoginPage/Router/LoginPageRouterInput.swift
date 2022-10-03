@@ -6,8 +6,9 @@
 //  Copyright © 2022 MD LCC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol LoginPageRouterInput {
-
+    func pushToRegistrationPageModule(navigationController: UINavigationController)
+    func pushToLoginForEmployeesModule(navigationController: UINavigationController)
 }

@@ -21,4 +21,5 @@ target 'Restaurant' do
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseCore'
+  pod 'FirebaseDatabase'
 end

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
 import SnapKit
 
 class LoginPageViewController: UIViewController {
@@ -37,27 +39,56 @@ class LoginPageViewController: UIViewController {
     private lazy var registrationTextFieldStackView: UIStackView = {
         let registrationTextFieldStackView = UIStackView()
         registrationTextFieldStackView.spacing = 10
-       // registrationTextFieldStackView.distribution = .fill
         registrationTextFieldStackView.axis = .vertical
         registrationTextFieldStackView.addArrangedSubview(loginEmailTextField)
+        registrationTextFieldStackView.addArrangedSubview(errorEmailLabel)
         registrationTextFieldStackView.addArrangedSubview(passwordTextField)
+        registrationTextFieldStackView.addArrangedSubview(errorPasswordLabel)
         return registrationTextFieldStackView
     }()
     
     private lazy var loginEmailTextField: UITextField = {
         let loginEmailTextField = UITextField()
         loginEmailTextField.layer.cornerRadius = 6
-        loginEmailTextField.placeholder = "   Email"
+        loginEmailTextField.placeholder = "Email"
+        loginEmailTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: loginEmailTextField.frame.height))
+        loginEmailTextField.leftViewMode = .always
         loginEmailTextField.backgroundColor = .systemGray6
+        loginEmailTextField.autocapitalizationType = .none
         return loginEmailTextField
+    }()
+    
+    private lazy var errorEmailLabel: UILabel = {
+        let errorEmailLabel = UILabel()
+        errorEmailLabel.numberOfLines = 0
+        errorEmailLabel.textColor = AppColor.Theme
+        errorEmailLabel.textAlignment = .center
+        errorEmailLabel.font = UIFont.init(name: "Helvetica-BoldOblique", size: 12)
+        return errorEmailLabel
     }()
     
     private lazy var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         passwordTextField.layer.cornerRadius = 6
-        passwordTextField.placeholder = "   Пароль"
+        passwordTextField.placeholder = "Пароль"
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: passwordTextField.frame.height))
+        passwordTextField.leftViewMode = .always
         passwordTextField.backgroundColor = .systemGray6
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.rightView = passwordImageButton
+        passwordTextField.rightViewMode = .always
+        passwordTextField.autocapitalizationType = .none
+        passwordTextField.addSubview(passwordImageButton)
         return passwordTextField
+    }()
+    
+    private lazy var errorPasswordLabel: UILabel = {
+        let errorPasswordLabel = UILabel()
+        errorPasswordLabel.numberOfLines = 0
+        errorPasswordLabel.textColor = AppColor.Theme
+        errorPasswordLabel.textAlignment = .center
+        errorPasswordLabel.font = UIFont.init(name: "Helvetica-BoldOblique", size: 12)
+        return errorPasswordLabel
     }()
     
     lazy private var loginButton: UIButton = {
@@ -65,8 +96,21 @@ class LoginPageViewController: UIViewController {
         loginButton.layer.cornerRadius = 6
         loginButton.setTitle("Войти", for: .normal)
         loginButton.setTitleColor(UIColor.white, for: .normal)
+        loginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         loginButton.backgroundColor = AppColor.Theme
+        loginButton.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         return loginButton
+    }()
+    
+    lazy private var loginForEmployees: UIButton = {
+        let loginForEmployees = UIButton(type: .system)
+        loginForEmployees.layer.cornerRadius = 6
+        loginForEmployees.setTitle("Войти как сотрудник", for: .normal)
+        loginForEmployees.setTitleColor(AppColor.Theme, for: .normal)
+        loginForEmployees.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        loginForEmployees.backgroundColor = UIColor.white
+        loginForEmployees.addTarget(self, action: #selector(loginForEmployeesDidTap), for: .touchUpInside)
+        return loginForEmployees
     }()
     
     lazy private var fogotPasswordLabel: UILabel = {
@@ -86,28 +130,32 @@ class LoginPageViewController: UIViewController {
         registrationButton.backgroundColor = .white
         registrationButton.layer.borderWidth = 1
         registrationButton.layer.borderColor = AppColor.Border.cgColor
+        registrationButton.addSubview(chevronRightImageView)
+        registrationButton.addTarget(self, action: #selector(registrationButtonDidTap), for: .touchUpInside)
         return registrationButton
     }()
-    
-//    lazy private var passwordImageButton: UIImageView = {
-//        let largeFont = UIFont.systemFont(ofSize: 60)
-//        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-//        let image = UIImage(systemName: "eye", withConfiguration: configuration)
-//        let passwordImageButton = UIImageView(image: image)
-//        passwordImageButton.tintColor = AppColor.Theme
-//        return passwordImageButton
-//    }()
     
     lazy private var passwordImageButton: UIButton = {
         let image = UIImage(systemName: "eye")
         let passwordImageButton = UIButton(type: .system)
         passwordImageButton.setImage(image, for: .normal)
         passwordImageButton.tintColor = AppColor.Theme
+        passwordImageButton.addTarget(self, action: #selector(passwordImageButtonDidTap), for: .touchUpInside)
         return passwordImageButton
     }()
     
+    lazy private var chevronRightImageView: UIImageView = {
+        let largeFont = UIFont.systemFont(ofSize: 24)
+        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+        let image = UIImage(systemName: "chevron.right", withConfiguration: configuration)
+        let chevronRightImageView = UIImageView(image: image)
+        chevronRightImageView.tintColor = AppColor.Border
+        return chevronRightImageView
+    }()
+    
     var output: LoginPageViewOutput?
-
+    var passwordImageButtonState: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -116,19 +164,22 @@ class LoginPageViewController: UIViewController {
         view.addSubview(loginTitleImageView)
         view.addSubview(registrationTextFieldStackView)
         view.addSubview(loginButton)
+        view.addSubview(loginForEmployees)
         view.addSubview(fogotPasswordLabel)
         view.addSubview(registrationButton)
-        view.addSubview(passwordImageButton)
+        
+        errorEmailLabel.isHidden = true
+        errorPasswordLabel.isHidden = true
         
         titleLabel.snp.makeConstraints { make in
             make.leading.top.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         loginTitleImageView.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing)
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(100)
-            make.width.equalTo(120)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(40)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
         }
         
         descriptionTitleLabel.snp.makeConstraints { make in
@@ -149,14 +200,15 @@ class LoginPageViewController: UIViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
         
-        passwordImageButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().offset(28)
-            make.centerX.equalToSuperview().offset(150)
-            //make.height.width.equalTo(35)
-        }
-        
         fogotPasswordLabel.snp.makeConstraints { make in
             make.top.equalTo(loginButton.snp.bottom).inset(-35)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+        }
+        
+        
+        loginForEmployees.snp.makeConstraints { make in
+            make.bottom.equalTo(registrationButton.snp.top).inset(-20)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
@@ -165,6 +217,11 @@ class LoginPageViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
+        }
+        
+        chevronRightImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-10)
         }
         
         loginEmailTextField.snp.makeConstraints { make in
@@ -182,6 +239,81 @@ class LoginPageViewController: UIViewController {
         registrationButton.snp.makeConstraints { make in
             make.height.equalTo(55)
         }
+    }
+}
+
+extension LoginPageViewController {
+    @objc func passwordImageButtonDidTap() {
+        if passwordImageButtonState {
+            let image = UIImage(systemName: "eye.slash.fill")
+            self.passwordImageButton.setImage(image, for: .normal)
+            self.passwordImageButton.tintColor = AppColor.Theme
+            self.passwordTextField.isSecureTextEntry = false
+            passwordImageButtonState = false
+        } else {
+            let image = UIImage(systemName: "eye")
+            self.passwordImageButton.setImage(image, for: .normal)
+            self.passwordImageButton.tintColor = AppColor.Theme
+            self.passwordTextField.isSecureTextEntry = true
+            passwordImageButtonState = true
+        }
+    }
+    
+    @objc func registrationButtonDidTap() {
+        output?.registrationButtonDidTap()
+    }
+    
+    @objc func loginButtonDidTap() {
+        guard
+            let email = loginEmailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            errorPasswordLabel.isHidden = false
+            errorPasswordLabel.text = "Заполните поля"
+            return
+        }
+        
+        let isLoginEmployee = email.contains("emp.emp")
+        
+        errorEmailLabel.isHidden = true
+        errorPasswordLabel.isHidden = true
+        
+        if isLoginEmployee {
+            errorEmailLabel.isHidden = false
+            errorEmailLabel.text = "Вход сотрудникам через кнопку 'Войти как сотрудник'"
+            
+        } else {
+            loginIn(email: email, password: password)
+        }
+        
+    }
+    
+    private func loginIn(email: String, password: String) {
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if error != nil, let error = error as NSError? {
+                if let errorCode = AuthErrorCode(rawValue: error.code) {
+                    switch errorCode {
+                    case .invalidEmail:
+                        self.errorEmailLabel.text = "Некорректный email"
+                        self.errorEmailLabel.isHidden = false
+                    case .wrongPassword:
+                        self.errorPasswordLabel.isHidden = false
+                        self.errorPasswordLabel.text = "Неправильный пароль или логин"
+                    case .userNotFound:
+                        self.errorEmailLabel.text = "Такого пользователя нет"
+                        self.errorEmailLabel.isHidden = false
+                    default:
+                        break
+                    }
+                }
+            } else {
+                print("succes login from FireBase")
+                
+            }
+        }
+    }
+    
+    @objc func loginForEmployeesDidTap() {
+        output?.loginForEmployeesDidTap()
     }
 }
 
