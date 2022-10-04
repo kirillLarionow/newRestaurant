@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LoginForEmployessRouterInput {
-
+    func goToTabBarForEmployeesModule()
 }

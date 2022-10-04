@@ -114,6 +114,9 @@ class LoginForEmployessViewController: UIViewController {
         view.backgroundColor = .white
         title = "Вход"
         setupView()
+        
+        emailTextField.text = "emp@emp.emp"
+        passwordTextField.text = "111111"
     }
     
     private func setupView() {
@@ -227,6 +230,7 @@ extension LoginForEmployessViewController {
                 }
             } else {
                 print("succes login from FireBase EMPLOYEE")
+                self.output?.succesLoginIn()
                 
             }
         }

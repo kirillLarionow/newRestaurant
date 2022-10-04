@@ -18,7 +18,9 @@ extension LoginForEmployessPresenter: LoginForEmployessModuleInput {
 }
 
 extension LoginForEmployessPresenter: LoginForEmployessViewOutput {
-
+    func succesLoginIn() {
+        router?.goToTabBarForEmployeesModule()
+    }
 }
 
 extension LoginForEmployessPresenter: LoginForEmployessInteractorOutput {
