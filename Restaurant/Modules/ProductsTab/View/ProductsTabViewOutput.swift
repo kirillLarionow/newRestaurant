@@ -8,4 +8,5 @@
 
 protocol ProductsTabViewOutput {
     func productListDidTap()
+    func createProductDidTap()
 }

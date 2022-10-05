@@ -22,5 +22,10 @@ target 'Restaurant' do
   pod 'FirebaseAuth'
   pod 'FirebaseCore'
   pod 'FirebaseDatabase'
-pod 'Then'
+  pod 'Then'
+  pod 'RxDataSources', '5.0.0'
+  pod 'RxBinding', '0.5.0'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
+  pod 'RxGesture', '4.0.4'
 end

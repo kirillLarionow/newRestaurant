@@ -1,5 +1,5 @@
 //
-//  LoginForEmployessLoginForEmployessViewController.swift
+//  LoginForEmployessViewController.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 03/10/2022.
@@ -213,7 +213,7 @@ extension LoginForEmployessViewController {
     private func loginIn(email: String, password: String) {
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if error != nil, let error = error as NSError? {
-                if let errorCode = AuthErrorCode(rawValue: error.code) {
+                if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
                     switch errorCode {
                     case .invalidEmail:
                         self.errorEmailLabel.text = "Некорректный email"

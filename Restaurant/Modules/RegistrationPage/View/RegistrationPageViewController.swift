@@ -210,7 +210,7 @@ extension RegistrationPageViewController {
             }
             
             if error != nil, let error = error as NSError? {
-                if let errorCode = AuthErrorCode(rawValue: error.code) {
+                if let errorCode = AuthErrorCode.Code(rawValue: error.code) {
                     switch errorCode {
                     case .invalidEmail:
                         self.errorEmailLabel.text = "Некорректный email"
