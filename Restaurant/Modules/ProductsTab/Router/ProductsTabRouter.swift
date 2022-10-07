@@ -18,4 +18,9 @@ extension ProductsTabRouter: ProductsTabRouterInput {
         
         navigationController.pushViewController(productsListModule.view, animated: true)
     }
+    
+    func goToCreateProductModule(navigationController: UINavigationController) {
+        let createProductModule = CreateProductModule.createModule()
+        navigationController.pushViewController(createProductModule.view, animated: true)
+    }
 }

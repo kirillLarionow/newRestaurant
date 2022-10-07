@@ -15,7 +15,6 @@ class ProductsTabViewController: UIViewController {
             $0.delegate = self
             $0.dataSource = self
             $0.separatorColor = AppColor.Theme
-            $0.estimatedRowHeight = 100
             $0.register(ProductsCell.self, forCellReuseIdentifier: productsCellID)
         }
     }()
@@ -75,11 +74,12 @@ extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
             output?.productListDidTap()
         case 1:
-            break
+            output?.createProductDidTap()
         case 2:
            break
         case 3:

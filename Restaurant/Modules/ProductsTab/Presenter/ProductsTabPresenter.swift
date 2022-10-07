@@ -25,6 +25,14 @@ extension ProductsTabPresenter: ProductsTabViewOutput {
         
         router?.goToProductsListModule(navigationController: navigationController)
     }
+    
+    func createProductDidTap() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.goToCreateProductModule(navigationController: navigationController)
+    }
 }
 
 extension ProductsTabPresenter: ProductsTabInteractorOutput {
