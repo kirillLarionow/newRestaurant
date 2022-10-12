@@ -6,8 +6,8 @@
 //  Copyright © 2022 MD LCC. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CreateProductRouterInput {
-
+    func goToCreateIngredientModule(navigationController: UINavigationController)
 }

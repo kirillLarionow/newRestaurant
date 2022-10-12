@@ -6,26 +6,34 @@ target 'Restaurant' do
   use_frameworks!
 
   # Pods for Restaurant
- pod 'R.swift', '5.0.0'
+  pod 'R.swift', '5.0.0'
   pod 'DKImagePickerController'
+
   pod 'Alamofire', '~> 5.4'
   pod 'ObjectMapper'
-  pod 'RealmSwift'
-  pod 'SwiftSpinner'
   pod 'PromiseKit'
   pod 'Moya'
+
+  pod 'RealmSwift'
+
+  pod 'SwiftSpinner'
   pod 'IQKeyboardManagerSwift'
   pod 'SnapKit'
   pod 'YPImagePicker'
   pod 'TransitionButton'
+  pod 'Then'
+
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseCore'
   pod 'FirebaseDatabase'
-  pod 'Then'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseMessaging'
+
   pod 'RxDataSources', '5.0.0'
   pod 'RxBinding', '0.5.0'
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'RxGesture', '4.0.4'
+
 end

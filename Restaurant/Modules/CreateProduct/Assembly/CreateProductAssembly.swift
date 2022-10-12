@@ -25,6 +25,8 @@ extension CreateProductModule {
         controller.output = presenter
         interactor.output = presenter
         router.output = presenter
+        
+      //  let navigationController = UINavigationController(rootViewController: controller)
 
         return CreateProductModule(view: controller, input: presenter, output: output)
     }

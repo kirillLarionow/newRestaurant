@@ -9,9 +9,168 @@
 import UIKit
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
+import RxGesture
+import RxBinding
 
 class CreateProductViewController: UIViewController {
-    //private lazy var category:
+    private lazy var categoryView: UIView = {
+        UIView().then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.addSubview(categoryLabel)
+            $0.rx
+                .tapGesture()
+                .when(.recognized)
+                .subscribe(onNext: { _ in
+                    print("category tap")
+                })
+                .disposed(by: disposeBag)
+        }
+    }()
+    
+    private lazy var categoryLabel: UILabel = {
+        UILabel().then {
+            $0.text = "Категория"
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 14, weight: .medium)
+        }
+    }()
+    
+    private lazy var titleTextField: UITextField = {
+        UITextField().then {
+            $0.placeholder = "Название товара"
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+            $0.leftViewMode = .always
+            $0.leftView = spacerView
+        }
+    }()
+    
+    private lazy var descriptionTextField: UITextField = {
+        UITextField().then {
+                $0.placeholder = "Описание"
+                $0.backgroundColor = .white
+                $0.layer.borderWidth = 1
+                $0.layer.borderColor = AppColor.Theme.cgColor
+                $0.layer.cornerRadius = 6
+                let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+                $0.leftViewMode = .always
+                $0.leftView = spacerView
+            }
+        }()
+    
+    private lazy var ingredientsTitleLabel: UILabel = {
+        UILabel().then {
+            $0.text = "Ингридиенты:"
+            $0.textColor = .black
+            $0.backgroundColor = view.backgroundColor
+            $0.font = .systemFont(ofSize: 14, weight: .medium)
+        }
+    }()
+    
+    private lazy var ingredientsListView: UIView = {
+        UIView().then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.addSubview(ingredientsLabel)
+            $0.addSubview(addIngredientsImageView)
+        }
+    }()
+    
+    private lazy var ingredientsLabel: UILabel = {
+        UILabel().then {
+            $0.text = "Пусто"
+            $0.textColor = .black
+            $0.backgroundColor = view.backgroundColor
+            $0.font = .systemFont(ofSize: 14, weight: .medium)
+        }
+    }()
+    
+    lazy private var addIngredientsImageView: UIImageView = {
+        let largeFont = UIFont.systemFont(ofSize: 20)
+        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+        let image = UIImage(systemName: "plus.circle", withConfiguration: configuration)
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = AppColor.Theme
+        return imageView
+    }()
+    
+    private lazy var createIngredientsStackView: UIStackView = {
+        UIStackView().then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.axis = .horizontal
+            $0.addArrangedSubview(createIngredientButton)
+            $0.clipsToBounds = true
+        }
+    }()
+    
+    private lazy var createIngredientButton: UIButton = {
+        UIButton(type: .system).then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.setTitle("Создать ингредиент", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.titleLabel?.textAlignment = .center
+            $0.rx
+                .tapGesture()
+                .when(.recognized)
+                .subscribe(onNext: { _ in
+                    print("create ingredient")
+                    self.output?.createIngredientButtonDidTap()
+                })
+                .disposed(by: disposeBag)
+        }
+    }()
+
+    private lazy var caloriesStackView: UIStackView = {
+        UIStackView().then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.axis = .horizontal
+            $0.distribution = .fill
+            $0.clipsToBounds = true
+            $0.addArrangedSubview(caloriesLabel)
+        }
+    }()
+    
+    private lazy var caloriesLabel: UILabel = {
+        UILabel().then {
+            $0.text = "Калорий: 0"
+            $0.textColor = .black
+            $0.backgroundColor = view.backgroundColor
+            $0.font = .systemFont(ofSize: 14, weight: .medium)
+        }
+    }()
+    
+    private lazy var createProductButton: UIButton = {
+        UIButton(type: .system).then {
+            $0.backgroundColor = .white
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.cornerRadius = 6
+            $0.setTitle("Создать товар", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+            $0.titleLabel?.textAlignment = .center
+        }
+    }()
+    
+    let disposeBag = DisposeBag()
     
     
     var output: CreateProductViewOutput?
@@ -20,6 +179,91 @@ class CreateProductViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "Создание товара"
+        setupView()
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .white
+        view.addSubview(categoryView)
+        view.addSubview(titleTextField)
+        view.addSubview(descriptionTextField)
+        view.addSubview(ingredientsTitleLabel)
+        view.addSubview(ingredientsListView)
+        view.addSubview(createIngredientsStackView)
+        view.addSubview(caloriesStackView)
+        view.addSubview(createProductButton)
+        
+        categoryView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(40)
+        }
+        
+        categoryLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(20)
+        }
+        
+        titleTextField.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(categoryView.snp.bottom).offset(20)
+            make.height.equalTo(40)
+        }
+        
+        descriptionTextField.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(titleTextField.snp.bottom).offset(20)
+            make.height.equalTo(80)
+        }
+        
+        ingredientsTitleLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(25)
+            make.top.equalTo(descriptionTextField.snp.bottom).offset(50)
+        }
+        
+        ingredientsListView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(ingredientsTitleLabel.snp.bottom).offset(10)
+            make.height.equalTo(100)
+        }
+        
+        ingredientsLabel.snp.makeConstraints { make in
+            make.leading.top.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(45)
+        }
+        
+        addIngredientsImageView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(10)
+            make.top.equalToSuperview().inset(10)
+        }
+        
+        createIngredientsStackView.snp.makeConstraints { make in
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(ingredientsListView.snp.bottom).offset(10)
+            make.height.equalTo(40)
+        }
+        
+        caloriesStackView.snp.makeConstraints { make in
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(createIngredientsStackView.snp.bottom).offset(10)
+            make.height.equalTo(40)
+            make.width.equalTo(view.bounds.width / 2)
+        }
+    
+        caloriesLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(10)
+        }
+        
+        createProductButton.snp.makeConstraints { make in
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(40)
+        }
+
     }
 }
 

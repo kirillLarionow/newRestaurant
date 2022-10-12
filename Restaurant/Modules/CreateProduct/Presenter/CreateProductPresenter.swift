@@ -18,7 +18,13 @@ extension CreateProductPresenter: CreateProductModuleInput {
 }
 
 extension CreateProductPresenter: CreateProductViewOutput {
-
+    func createIngredientButtonDidTap() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.goToCreateIngredientModule(navigationController: navigationController)
+    }
 }
 
 extension CreateProductPresenter: CreateProductInteractorOutput {
