@@ -8,5 +8,4 @@
 
 protocol EditIngredientViewOutput {
     func viewDidLoad()
-    func testButtonDidTap()
 }

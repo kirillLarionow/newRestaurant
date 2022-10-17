@@ -19,15 +19,14 @@ extension EditIngredientPresenter: EditIngredientModuleInput {
 
 extension EditIngredientPresenter: EditIngredientViewOutput {
     func viewDidLoad() {
-    }
-    
-    func testButtonDidTap() {
         interactor?.getIngredients()
     }
 }
 
 extension EditIngredientPresenter: EditIngredientInteractorOutput {
-
+    func fetchIngredientsData(ingredients: [IngredientModel]) {
+        view?.updateView(ingredients: ingredients)
+    }
 }
 
 extension EditIngredientPresenter: EditIngredientRouterOutput {

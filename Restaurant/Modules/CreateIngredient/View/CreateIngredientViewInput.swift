@@ -6,6 +6,11 @@
 //  Copyright © 2022 MD LCC. All rights reserved.
 //
 
-protocol CreateIngredientViewInput {
+import UIKit
 
+protocol CreateIngredientViewInput {
+    var ingredientName: String { get }
+    var ingredientCalories: String { get }
+    
+    func showCreateIngredientError(error: String)
 }

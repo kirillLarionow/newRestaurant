@@ -7,5 +7,5 @@
 //
 
 protocol CreateIngredientViewOutput {
-
+    func createIngredient()
 }

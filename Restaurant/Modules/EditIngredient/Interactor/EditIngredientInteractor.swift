@@ -17,8 +17,9 @@ extension EditIngredientInteractor: EditIngredientInteractorInput {
     func getIngredients() {
         DataBaseService.shared.getIngredients { result in
             switch result {
-            case .success(let success):
-                print(success)
+            case .success(let ingredients):
+                self.output?.fetchIngredientsData(ingredients: ingredients)
+                print(ingredients)
             case .failure(let error):
                 print(error)
             }

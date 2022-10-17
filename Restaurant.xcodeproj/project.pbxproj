@@ -58,6 +58,7 @@
 		4B6B57C228EC55EA003501A5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B57C128EC55EA003501A5 /* UIColor+Extensions.swift */; };
 		4B6BE48B28F60474005A09E7 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48A28F60473005A09E7 /* DataBaseService.swift */; };
 		4B6BE48E28F61D45005A09E7 /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */; };
+		4B6DB5E528FD757F00A99667 /* EditIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB5E428FD757F00A99667 /* EditIngredientsCell.swift */; };
 		4B70663628EC7CC700741DDC /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70663528EC7CC700741DDC /* ProductsCell.swift */; };
 		4B70D5F228C3FE6A00DC317E /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D5F128C3FE6900DC317E /* AppColors.swift */; };
 		4B787C5228C0D0C100A10EB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B787C5128C0D0C100A10EB3 /* AppDelegate.swift */; };
@@ -219,6 +220,7 @@
 		4B6B57C128EC55EA003501A5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4B6BE48A28F60473005A09E7 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
+		4B6DB5E428FD757F00A99667 /* EditIngredientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIngredientsCell.swift; sourceTree = "<group>"; };
 		4B70663528EC7CC700741DDC /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
 		4B70D5F128C3FE6900DC317E /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		4B787C4E28C0D0C100A10EB3 /* Restaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -700,6 +702,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4B6DB5E628FD758500A99667 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4B6DB5E428FD757F00A99667 /* EditIngredientsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		4B70663428EC7C5D00741DDC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,7 +816,6 @@
 				6A4C5DA07D3A3F595C51564F /* Router */,
 				BD55411AFA4E4057C0F0319C /* Assembly */,
 			);
-			name = EditIngredient;
 			path = EditIngredient;
 			sourceTree = "<group>";
 		};
@@ -833,11 +842,11 @@
 		631D036DC6B35F063A1A28D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B6DB5E628FD758500A99667 /* Cells */,
 				D996125A707C91EFAA51EF56 /* EditIngredientViewInput.swift */,
 				16142DA91922F84B75DF02F2 /* EditIngredientViewOutput.swift */,
 				5C0F3E1A59E44F8E539418AE /* EditIngredientViewController.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -888,7 +897,6 @@
 				9E6D891A2B641F09FB6E512A /* EditIngredientRouterOutput.swift */,
 				E7C50702127EBC880A2D7920 /* EditIngredientRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -956,7 +964,6 @@
 				9F2B8B490A19796B1A34B943 /* EditIngredientInteractorOutput.swift */,
 				557619E8BDC9CE75D0B7A00B /* EditIngredientInteractor.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -1051,7 +1058,6 @@
 			children = (
 				6530ABB3FB1EDF09734F2C2F /* EditIngredientAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1102,7 +1108,6 @@
 				F72691BB7994BB57D0FACAFA /* EditIngredientModuleOutput.swift */,
 				77C7CEBEF68D535F59002A7C /* EditIngredientPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -1366,6 +1371,7 @@
 				C9B75699FE1DAD85985F152C /* WelcomePageRouterOutput.swift in Sources */,
 				4B70D5F228C3FE6A00DC317E /* AppColors.swift in Sources */,
 				3E935A1B6902BE83FE50FC3F /* WelcomePageRouter.swift in Sources */,
+				4B6DB5E528FD757F00A99667 /* EditIngredientsCell.swift in Sources */,
 				4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */,
 				E453C013B23B0E867931ED56 /* WelcomePageAssembly.swift in Sources */,
 				35CD64473C49BF2ED4075A64 /* LoginPageViewInput.swift in Sources */,

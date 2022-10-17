@@ -11,5 +11,16 @@ class CreateIngredientInteractor {
 }
 
 extension CreateIngredientInteractor: CreateIngredientInteractorInput {
-
+    func createIngredient(ingredientName: String, calories: Int) {
+        let ingredient = IngredientModel(name: ingredientName, calories: calories)
+        
+        DataBaseService.shared.createIngredient(ingredient: ingredient) { result in
+            switch result {
+            case .success(let success):
+                print(success)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

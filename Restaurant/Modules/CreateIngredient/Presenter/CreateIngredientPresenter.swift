@@ -18,7 +18,24 @@ extension CreateIngredientPresenter: CreateIngredientModuleInput {
 }
 
 extension CreateIngredientPresenter: CreateIngredientViewOutput {
-
+    func createIngredient() {
+        guard
+            let ingredientName = view?.ingredientName,
+            let ingredientCalories = view?.ingredientCalories,
+            !ingredientName.isEmpty,
+            !ingredientCalories.isEmpty
+        else {
+            view?.showCreateIngredientError(error: "Заполните поля!")
+            return
+        }
+        
+        guard let ingredientCalories = Int(ingredientCalories) else {
+            view?.showCreateIngredientError(error: "Калории должны быть целочисленными!")
+            return
+        }
+        
+        interactor?.createIngredient(ingredientName: ingredientName, calories: ingredientCalories)
+    }
 }
 
 extension CreateIngredientPresenter: CreateIngredientInteractorOutput {

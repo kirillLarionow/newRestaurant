@@ -9,5 +9,5 @@
 import Foundation
 
 protocol EditIngredientInteractorOutput {
-
+    func fetchIngredientsData(ingredients: [IngredientModel])
 }

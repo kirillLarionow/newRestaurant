@@ -7,5 +7,5 @@
 //
 
 protocol EditIngredientViewInput {
-
+    func updateView(ingredients: [IngredientModel])
 }

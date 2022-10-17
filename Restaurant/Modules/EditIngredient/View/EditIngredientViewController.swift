@@ -8,38 +8,74 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class EditIngredientViewController: UIViewController {
-    let testButton: UIButton = {
-        let testButton = UIButton(type: .system)
-        testButton.setTitle("123", for: .normal)
-        testButton.backgroundColor = .white
-        testButton.setTitleColor(.black, for: .normal)
-        testButton.addTarget(self, action: #selector(testButtonDidTap), for: .touchUpInside)
-        return testButton
+    private lazy var tableView: UITableView = {
+        UITableView(frame: .zero, style: .insetGrouped).then {
+            $0.delegate = self
+            $0.dataSource = self
+            $0.separatorColor = AppColor.Theme
+            $0.register(EditIngredientsCell.self, forCellReuseIdentifier: editIngredientsCellIdentifier)
+        }
     }()
     
+    var ingredients: [IngredientModel] = []
+    let editIngredientsCellIdentifier = "EditIngredientsCellIdentifier"
     
     var output: EditIngredientViewOutput?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(testButton)
-        
         output?.viewDidLoad()
-        
-        view.backgroundColor = .red
-        
-        testButton.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
-        }
+        setupView()
     }
     
-    @objc func testButtonDidTap() {
-        output?.testButtonDidTap()
+}
+
+extension EditIngredientViewController {
+    private func setupView() {
+        view.backgroundColor = .white
+        title = "Редактирование ингредиентов"
+        view.addSubview(tableView)
+        
+        makeConstraints()
+    }
+    
+    private func makeConstraints() {
+        tableView.snp.makeConstraints { make in
+            make.trailing.top.leading.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+}
+
+extension EditIngredientViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: editIngredientsCellIdentifier, for: indexPath)
+                as? EditIngredientsCell
+        else {
+            fatalError()
+        }
+        
+        cell.selectionStyle = .none
+        cell.setup(ingredient: ingredients[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(50)
     }
 }
 
 extension EditIngredientViewController: EditIngredientViewInput {
-
+    func updateView(ingredients: [IngredientModel]) {
+        self.ingredients = ingredients
+        tableView.reloadData()
+    }
 }

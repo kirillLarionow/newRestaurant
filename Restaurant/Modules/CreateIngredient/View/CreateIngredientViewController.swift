@@ -53,6 +53,7 @@ class CreateIngredientViewController: UIViewController {
             let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
             $0.leftViewMode = .always
             $0.leftView = spacerView
+            $0.delegate = self
         }
     }()
     
@@ -84,35 +85,24 @@ class CreateIngredientViewController: UIViewController {
             let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
             $0.leftViewMode = .always
             $0.leftView = spacerView
+            $0.keyboardType = .phonePad
         }
     }()
     
     private lazy var createIngredientButton: UIButton = {
         UIButton(type: .system).then {
-            $0.backgroundColor = .white
+            $0.backgroundColor = AppColor.Theme
             $0.layer.borderWidth = 1
-            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.layer.borderColor = AppColor.Border.cgColor
             $0.layer.cornerRadius = 6
             $0.setTitle("Создать", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.titleLabel?.textAlignment = .center
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
             $0.rx
                 .tapGesture()
                 .when(.recognized)
                 .subscribe(onNext: { _ in
-//                    print("create ingredient")
-                   // self.output?.createIngredientButtonDidTap()
-                    let foo = Int(self.caloriesPerGramTextField.text ?? "0")
-                    let ingredient = IngredientModel(name: self.ingredientNameTextField.text ?? "", calories: foo ?? 0)
-                    
-                    DataBaseService.shared.createIngredient(ingredient: ingredient) { result in
-                        switch result {
-                        case .success(let success):
-                            print(success)
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
+                    self.output?.createIngredient()
                 })
                 .disposed(by: disposeBag)
         }
@@ -154,5 +144,31 @@ class CreateIngredientViewController: UIViewController {
 }
 
 extension CreateIngredientViewController: CreateIngredientViewInput {
+    var ingredientName: String {
+        return ingredientNameTextField.text ?? ""
+    }
+    
+    var ingredientCalories: String {
+        return caloriesPerGramTextField.text ?? "0"
+    }
+    
+    func showCreateIngredientError(error: String) {
+        let alertController = UIAlertController(title: "Ошибка", message: error, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: " ОК", style: .destructive))
+        present(alertController, animated: true)
+    }
+}
 
+extension CreateIngredientViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == ingredientNameTextField {
+            let allowedCharacters = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюяABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+            let typedCharacterSet = CharacterSet(charactersIn: string)
+            let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            return alphabet
+        } else {
+            return false
+        }
+    }
 }
