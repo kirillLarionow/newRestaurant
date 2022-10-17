@@ -8,4 +8,5 @@
 
 protocol CreateIngredientViewOutput {
     func createIngredient()
+    func closeCurrentModule()
 }

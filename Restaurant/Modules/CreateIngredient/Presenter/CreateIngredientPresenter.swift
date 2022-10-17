@@ -35,6 +35,15 @@ extension CreateIngredientPresenter: CreateIngredientViewOutput {
         }
         
         interactor?.createIngredient(ingredientName: ingredientName, calories: ingredientCalories)
+        view?.showCreateIngredientSuccess(text: "Ингредиент успешно создан!")
+    }
+    
+    func closeCurrentModule() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.closeCurrentModule(navigationController: navigationController)
     }
 }
 

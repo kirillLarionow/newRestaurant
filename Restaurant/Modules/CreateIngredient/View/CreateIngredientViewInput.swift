@@ -11,6 +11,8 @@ import UIKit
 protocol CreateIngredientViewInput {
     var ingredientName: String { get }
     var ingredientCalories: String { get }
+    var navigationController: UINavigationController? { get }
     
     func showCreateIngredientError(error: String)
+    func showCreateIngredientSuccess(text: String)
 }

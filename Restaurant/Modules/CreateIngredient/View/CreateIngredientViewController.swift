@@ -157,6 +157,15 @@ extension CreateIngredientViewController: CreateIngredientViewInput {
         alertController.addAction(UIAlertAction(title: " ОК", style: .destructive))
         present(alertController, animated: true)
     }
+    
+    func showCreateIngredientSuccess(text: String) {
+        let alertController = UIAlertController(title: "Успешное создание", message: text, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ОК", style: .default, handler: { alertAction in
+            self.output?.closeCurrentModule()
+        }))
+        
+        present(alertController, animated: true)
+    }
 }
 
 extension CreateIngredientViewController: UITextFieldDelegate {
