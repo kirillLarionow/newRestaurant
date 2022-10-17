@@ -28,4 +28,22 @@ class DataBaseService {
             }
         }
     }
+    
+    func getIngredients(completion: @escaping (Result<[IngredientModel], Error>) -> ()) {
+        ingredientsReference.getDocuments { querySnapshot, error in
+            if let querySnapshots = querySnapshot?.documents {
+                var ingredients = [IngredientModel]()
+                
+                for querySnapshot in querySnapshots {
+                    
+                    if let ingredient = IngredientModel(queryDocumentSnapshot: querySnapshot) {
+                        ingredients.append(ingredient)
+                    }
+                }
+                completion(.success(ingredients))
+            } else  if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
 }

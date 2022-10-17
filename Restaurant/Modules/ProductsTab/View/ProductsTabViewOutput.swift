@@ -9,4 +9,6 @@
 protocol ProductsTabViewOutput {
     func productListDidTap()
     func createProductDidTap()
+    func createIngredientDidTap()
+    func editIngredientDidTap()
 }

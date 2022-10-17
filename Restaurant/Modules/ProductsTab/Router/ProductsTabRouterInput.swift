@@ -11,4 +11,6 @@ import UIKit
 protocol ProductsTabRouterInput {
     func goToProductsListModule(navigationController: UINavigationController)
     func goToCreateProductModule(navigationController: UINavigationController)
+    func goToCreateIngredientModule(navigationController: UINavigationController)
+    func goToEditIngredientModule(navigationController: UINavigationController)
 }

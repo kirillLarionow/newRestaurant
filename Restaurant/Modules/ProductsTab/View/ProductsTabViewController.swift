@@ -43,7 +43,7 @@ extension ProductsTabViewController {
 
 extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,6 +62,10 @@ extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource 
             cell.setup(text: "Редактировать товар")
         case 4:
             cell.setup(text: "Редактировать категорию")
+        case 5:
+            cell.setup(text: "Создать ингредиент")
+        case 6:
+            cell.setup(text: "Редактировать ингредиент")
         default:
             break
         }
@@ -86,6 +90,10 @@ extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource 
             break
         case 4:
            break
+        case 5:
+            output?.createIngredientDidTap()
+        case 6:
+            output?.editIngredientDidTap()
         default:
             break
         }
