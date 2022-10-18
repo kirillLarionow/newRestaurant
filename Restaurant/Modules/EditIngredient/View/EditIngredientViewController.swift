@@ -12,7 +12,7 @@ import Then
 
 class EditIngredientViewController: UIViewController {
     private lazy var tableView: UITableView = {
-        UITableView(frame: .zero, style: .insetGrouped).then {
+        UITableView().then {
             $0.delegate = self
             $0.dataSource = self
             $0.separatorColor = AppColor.Theme
