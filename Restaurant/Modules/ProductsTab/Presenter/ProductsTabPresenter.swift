@@ -47,7 +47,7 @@ extension ProductsTabPresenter: ProductsTabViewOutput {
             return
         }
         
-        router?.goToEditIngredientModule(navigationController: navigationController)
+        router?.goToIngredientsListModule(navigationController: navigationController)
     }
 }
 

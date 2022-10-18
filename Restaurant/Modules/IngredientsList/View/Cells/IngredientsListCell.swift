@@ -1,16 +1,16 @@
 //
-//  EditIngredientsCell.swift
+//  IngredientsListCell.swift
 //  Restaurant
 //
-//  Created by кирилл ларионов on 17.10.2022.
+//  Created by кирилл ларионов on 18.10.2022.
 //
 
 import UIKit
 import Then
 import SnapKit
 
-extension EditIngredientViewController {
-    class EditIngredientsCell: UITableViewCell {
+extension IngredientsListViewController {
+    class IngredientsListCell: UITableViewCell {
         private lazy var ingredientStackView: UIStackView = {
             UIStackView().then {
                 $0.axis = .horizontal

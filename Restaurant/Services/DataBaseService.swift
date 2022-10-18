@@ -46,4 +46,26 @@ class DataBaseService {
             }
         }
     }
+    
+    func udpateIngredient(ingredient: IngredientModel,
+                          oldIngredient: IngredientModel,
+                          completion: @escaping (Result<IngredientModel, Error>) -> ()) {
+        do {
+            
+            ingredientsReference.document(oldIngredient.name).delete()
+            
+            ingredientsReference.document(ingredient.name).setData([
+               "id" :  oldIngredient.id,
+               "name" : ingredient.name,
+               "calories" : ingredient.calories
+           ])
+
+            completion(.success(ingredient))
+        } catch {
+            completion(.failure("хз че тут сделать " as! Error))
+        }
+        
+   
+        
+    }
 }

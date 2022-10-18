@@ -29,8 +29,8 @@ extension ProductsTabRouter: ProductsTabRouterInput {
         navigationController.pushViewController(createIngredientModule.view, animated: true)
     }
     
-    func goToEditIngredientModule(navigationController: UINavigationController) {
-        let editIngredientModule = EditIngredientModule.createModule()
-        navigationController.pushViewController(editIngredientModule.view, animated: true)
+    func goToIngredientsListModule(navigationController: UINavigationController) {
+        let ingredientsListModule = IngredientsListModule.createModule()
+        navigationController.pushViewController(ingredientsListModule.view, animated: true)
     }
 }

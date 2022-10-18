@@ -14,12 +14,23 @@ class EditIngredientInteractor {
 }
 
 extension EditIngredientInteractor: EditIngredientInteractorInput {
-    func getIngredients() {
-        DataBaseService.shared.getIngredients { result in
+    func editIngredient(ingredientName: String, calories: Int, oldIngredient: IngredientModel) {
+        let ingredient = IngredientModel(name: ingredientName, calories: calories)
+        
+//        DataBaseService.shared.createIngredient(ingredient: ingredient) { result in
+//            switch result {
+//            case .success(let success):
+//                print(success)
+//            case .failure(let error):
+//                print(error)
+        //            }
+        //        }
+
+        
+        DataBaseService.shared.udpateIngredient(ingredient: ingredient, oldIngredient: oldIngredient) { result in
             switch result {
-            case .success(let ingredients):
-                self.output?.fetchIngredientsData(ingredients: ingredients)
-                print(ingredients)
+            case .success(let success):
+                print(success)
             case .failure(let error):
                 print(error)
             }

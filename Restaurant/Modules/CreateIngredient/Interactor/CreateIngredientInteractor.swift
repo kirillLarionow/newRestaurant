@@ -1,5 +1,5 @@
 //
-//  CreateIngredientCreateIngredientInteractor.swift
+//  CreateIngredientInteractor.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 12/10/2022.

@@ -1,5 +1,5 @@
 //
-//  EditIngredientEditIngredientInteractorInput.swift
+//  EditIngredientInteractorInput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 13/10/2022.
@@ -9,5 +9,5 @@
 import Foundation
 
 protocol EditIngredientInteractorInput {
-    func getIngredients()
+    func editIngredient(ingredientName: String, calories: Int, oldIngredient: IngredientModel)
 }

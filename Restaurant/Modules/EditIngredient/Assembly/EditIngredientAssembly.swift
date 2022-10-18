@@ -11,9 +11,9 @@ import UIKit
 typealias EditIngredientModule = BaseModule<EditIngredientModuleInput, EditIngredientModuleOutput>
 
 extension EditIngredientModule {
-    static func createModule(output: EditIngredientModuleOutput? = nil) -> EditIngredientModule {
+    static func createModule(output: EditIngredientModuleOutput? = nil, ingredient: IngredientModel) -> EditIngredientModule {
         let controller = EditIngredientViewController()
-        let presenter = EditIngredientPresenter()
+        let presenter = EditIngredientPresenter(ingredient: ingredient)
         let interactor = EditIngredientInteractor()
         let router = EditIngredientRouter()
 
@@ -26,6 +26,8 @@ extension EditIngredientModule {
         interactor.output = presenter
         router.output = presenter
 
-        return EditIngredientModule(view: controller, input: presenter, output: output)
+        let navigationController = UINavigationController(rootViewController: controller)
+        
+        return EditIngredientModule(view: navigationController, input: presenter, output: output)
     }
 }

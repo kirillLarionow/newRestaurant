@@ -1,5 +1,5 @@
 //
-//  EditIngredientEditIngredientViewOutput.swift
+//  EditIngredientViewOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 13/10/2022.
@@ -8,4 +8,6 @@
 
 protocol EditIngredientViewOutput {
     func viewDidLoad()
+    func editIngredient()
+    func closeCurrentModule()
 }

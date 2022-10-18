@@ -12,5 +12,5 @@ protocol ProductsTabRouterInput {
     func goToProductsListModule(navigationController: UINavigationController)
     func goToCreateProductModule(navigationController: UINavigationController)
     func goToCreateIngredientModule(navigationController: UINavigationController)
-    func goToEditIngredientModule(navigationController: UINavigationController)
+    func goToIngredientsListModule(navigationController: UINavigationController)
 }
