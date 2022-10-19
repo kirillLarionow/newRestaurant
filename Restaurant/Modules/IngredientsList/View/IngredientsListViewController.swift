@@ -1,5 +1,5 @@
 //
-//  IngredientsListIngredientsListViewController.swift
+//  IngredientsListViewController.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 18/10/2022.
@@ -29,6 +29,12 @@ class IngredientsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
+        setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output?.viewWillAppear()
         setupView()
     }
 }
@@ -81,6 +87,10 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
 extension IngredientsListViewController: IngredientsListViewInput {
     func updateView(ingredients: [IngredientModel]) {
         self.ingredients = ingredients
+        tableView.reloadData()
+    }
+    
+    func updateViewAfterEditIngredient() {
         tableView.reloadData()
     }
 }

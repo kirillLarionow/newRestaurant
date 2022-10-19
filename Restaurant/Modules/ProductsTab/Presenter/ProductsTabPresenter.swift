@@ -49,6 +49,22 @@ extension ProductsTabPresenter: ProductsTabViewOutput {
         
         router?.goToIngredientsListModule(navigationController: navigationController)
     }
+    
+    func createCategory() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.goToCreateCategoryModule(navigationController: navigationController)
+    }
+    
+    func editCategoryDidTap() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.goToCategoriesListModule(navigationController: navigationController)
+    }
 }
 
 extension ProductsTabPresenter: ProductsTabInteractorOutput {

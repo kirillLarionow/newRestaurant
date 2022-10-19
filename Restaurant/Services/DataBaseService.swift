@@ -17,6 +17,10 @@ class DataBaseService {
         return firestore.collection("ingredients")
     }
     
+    private var categoriesReference: CollectionReference {
+        return firestore.collection("categories")
+    }
+    
     private init() { }
     
     func createIngredient(ingredient: IngredientModel, completion: @escaping (Result<IngredientModel, Error>) -> ()) {
@@ -64,8 +68,54 @@ class DataBaseService {
         } catch {
             completion(.failure("хз че тут сделать " as! Error))
         }
+    }
+    
+    func createCategory(category: CategoryModel, completion: @escaping (Result<CategoryModel, Error>) -> ()) {
+        categoriesReference.document(category.name).setData(category.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(category))
+            }
+        }
+    }
+    
+    func getCategories(completion: @escaping (Result<[CategoryModel], Error>) -> ()) {
+        categoriesReference.getDocuments { querySnapshot, error in
+            if let querySnapshots = querySnapshot?.documents {
+                var categories = [CategoryModel]()
+                
+                for querySnapshot in querySnapshots {
+                    
+                    if let category = CategoryModel(queryDocumentSnapshot: querySnapshot) {
+                        categories.append(category)
+                    }
+                }
+                completion(.success(categories))
+            } else  if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func udpateCategory(category: CategoryModel,
+                          oldCategory: CategoryModel,
+                          completion: @escaping (Result<CategoryModel, Error>) -> ()) {
+        do {
+            
+            categoriesReference.document(oldCategory.name).delete()
+            
+            
+            categoriesReference.document(category.name).setData([
+               "id" :  oldCategory.id,
+               "name" : category.name
+            ])
+            
         
-   
-        
+
+            completion(.success(category))
+        } catch {
+            completion(.failure("хз че тут сделать " as! Error))
+        }
     }
 }

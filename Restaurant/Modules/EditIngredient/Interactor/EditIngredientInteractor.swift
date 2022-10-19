@@ -17,19 +17,10 @@ extension EditIngredientInteractor: EditIngredientInteractorInput {
     func editIngredient(ingredientName: String, calories: Int, oldIngredient: IngredientModel) {
         let ingredient = IngredientModel(name: ingredientName, calories: calories)
         
-//        DataBaseService.shared.createIngredient(ingredient: ingredient) { result in
-//            switch result {
-//            case .success(let success):
-//                print(success)
-//            case .failure(let error):
-//                print(error)
-        //            }
-        //        }
-
-        
         DataBaseService.shared.udpateIngredient(ingredient: ingredient, oldIngredient: oldIngredient) { result in
             switch result {
             case .success(let success):
+                self.output?.updateIngredientsList()
                 print(success)
             case .failure(let error):
                 print(error)

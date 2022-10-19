@@ -1,5 +1,5 @@
 //
-//  CreateIngredientCreateIngredientModuleOutput.swift
+//  CreateIngredientModuleOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 12/10/2022.
@@ -7,5 +7,5 @@
 //
 
 protocol CreateIngredientModuleOutput {
-
+    
 }

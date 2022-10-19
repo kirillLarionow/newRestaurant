@@ -1,5 +1,5 @@
 //
-//  ProductsTabProductsTabViewOutput.swift
+//  ProductsTabViewOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -11,4 +11,6 @@ protocol ProductsTabViewOutput {
     func createProductDidTap()
     func createIngredientDidTap()
     func editIngredientDidTap()
+    func createCategory()
+    func editCategoryDidTap()
 }

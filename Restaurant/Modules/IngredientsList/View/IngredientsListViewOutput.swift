@@ -8,5 +8,6 @@
 
 protocol IngredientsListViewOutput {
     func viewDidLoad()
+    func viewWillAppear()
     func editIngredientDidTap(editIngredient: IngredientModel)
 }

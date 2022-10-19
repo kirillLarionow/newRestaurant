@@ -57,13 +57,14 @@ extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource 
         case 1:
             cell.setup(text: "Создать товар")
         case 2:
-//            cell.setup(text: "Создать категорию")
+
+//            cell.setup(text: "Редактировать товар")
             break
         case 3:
-          //  cell.setup(text: "Редактировать товар")
+            cell.setup(text: "Создать категорию")
             break
         case 4:
-            //cell.setup(text: "Редактировать категорию")
+            cell.setup(text: "Редактировать категорию")
             break
         case 5:
             cell.setup(text: "Создать ингредиент")
@@ -90,9 +91,9 @@ extension ProductsTabViewController: UITableViewDelegate, UITableViewDataSource 
         case 2:
            break
         case 3:
-            break
+            output?.createCategory()
         case 4:
-           break
+            output?.editCategoryDidTap()
         case 5:
             output?.createIngredientDidTap()
         case 6:

@@ -1,5 +1,5 @@
 //
-//  EditIngredientEditIngredientInteractorOutput.swift
+//  EditIngredientInteractorOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 13/10/2022.
@@ -9,4 +9,5 @@
 import Foundation
 
 protocol EditIngredientInteractorOutput {
+    func updateIngredientsList()
 }

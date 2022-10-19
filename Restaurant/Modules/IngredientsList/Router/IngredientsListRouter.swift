@@ -9,12 +9,19 @@
 import UIKit
 
 class IngredientsListRouter {
+    
   var output: IngredientsListRouterOutput?
 }
 
 extension IngredientsListRouter: IngredientsListRouterInput {
     func goToEditIngredientModule(editIngredient: IngredientModel, navigationController: UINavigationController) {
-        let editIngredientModule = EditIngredientModule.createModule(ingredient: editIngredient)
+        let editIngredientModule = EditIngredientModule.createModule(output: self, ingredient: editIngredient)
         navigationController.present(editIngredientModule.view, animated: true)
+    }
+}
+
+extension IngredientsListRouter: EditIngredientModuleOutput {
+    func updateIngredientsList() {
+        output?.updateIngredientsList()
     }
 }

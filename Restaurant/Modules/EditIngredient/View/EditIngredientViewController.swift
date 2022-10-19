@@ -13,6 +13,7 @@ import RxCocoa
 import RxSwift
 import RxGesture
 import RxBinding
+
 class EditIngredientViewController: UIViewController {
     
     private lazy var mainStackView: UIStackView = {
@@ -182,7 +183,7 @@ extension EditIngredientViewController: EditIngredientViewInput {
     func showEditIngredientSuccess(text: String) {
         let alertController = UIAlertController(title: "Успешное изменение", message: text, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "ОК", style: .default, handler: { alertAction in
-           // self.output?.closeCurrentModule()
+            self.dismiss(animated: true)
         }))
         
         present(alertController, animated: true)

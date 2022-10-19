@@ -1,5 +1,5 @@
 //
-//  IngredientsListIngredientsListRouterOutput.swift
+//  IngredientsListRouterOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 18/10/2022.
@@ -9,5 +9,5 @@
 import Foundation
 
 protocol IngredientsListRouterOutput {
-
+    func updateIngredientsList()
 }

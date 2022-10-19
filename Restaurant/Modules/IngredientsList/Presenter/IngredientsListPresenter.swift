@@ -11,6 +11,8 @@ class IngredientsListPresenter {
     var view: IngredientsListViewInput?
     var interactor: IngredientsListInteractorInput?
     var router: IngredientsListRouterInput?
+    
+    var ingredients: [IngredientModel] = []
 }
 
 extension IngredientsListPresenter: IngredientsListModuleInput {
@@ -19,6 +21,10 @@ extension IngredientsListPresenter: IngredientsListModuleInput {
 
 extension IngredientsListPresenter: IngredientsListViewOutput {
     func viewDidLoad() {
+        interactor?.getIngredients()
+    }
+    
+    func viewWillAppear() {
         interactor?.getIngredients()
     }
     
@@ -39,5 +45,9 @@ extension IngredientsListPresenter: IngredientsListInteractorOutput {
 }
 
 extension IngredientsListPresenter: IngredientsListRouterOutput {
-
+    func updateIngredientsList() {
+        interactor?.getIngredients()
+        view?.updateView(ingredients: ingredients)
+    }
 }
+

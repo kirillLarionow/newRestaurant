@@ -9,5 +9,4 @@
 protocol EditIngredientViewOutput {
     func viewDidLoad()
     func editIngredient()
-    func closeCurrentModule()
 }

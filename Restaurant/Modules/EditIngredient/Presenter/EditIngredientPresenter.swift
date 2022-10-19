@@ -23,7 +23,7 @@ extension EditIngredientPresenter: EditIngredientModuleInput {
 
 }
 
-extension EditIngredientPresenter: EditIngredientViewOutput {
+extension EditIngredientPresenter: EditIngredientViewOutput {    
     func viewDidLoad() {
         view?.setIngredientForChange(ingredient: ingredient)
     }
@@ -48,14 +48,12 @@ extension EditIngredientPresenter: EditIngredientViewOutput {
         interactor?.editIngredient(ingredientName: ingredientName, calories: ingredientCalories, oldIngredient: oldIngredient)
         view?.showEditIngredientSuccess(text: "Ингредиент успешно изменен!")
     }
-    
-    func closeCurrentModule() {
-   
-    }
 }
 
 extension EditIngredientPresenter: EditIngredientInteractorOutput {
-
+    func updateIngredientsList() {
+        output?.updateIngredientsList()
+    }
 }
 
 extension EditIngredientPresenter: EditIngredientRouterOutput {

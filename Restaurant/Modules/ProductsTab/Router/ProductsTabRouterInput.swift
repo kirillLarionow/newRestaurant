@@ -1,5 +1,5 @@
 //
-//  ProductsTabProductsTabRouterInput.swift
+//  ProductsTabRouterInput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -13,4 +13,6 @@ protocol ProductsTabRouterInput {
     func goToCreateProductModule(navigationController: UINavigationController)
     func goToCreateIngredientModule(navigationController: UINavigationController)
     func goToIngredientsListModule(navigationController: UINavigationController)
+    func goToCreateCategoryModule(navigationController: UINavigationController)
+    func goToCategoriesListModule(navigationController: UINavigationController)
 }
