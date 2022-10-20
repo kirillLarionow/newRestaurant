@@ -19,9 +19,12 @@ extension CreateProductRouter: CreateProductRouterInput {
     }
     
     func openCategoriesListModule(navigationController: UINavigationController) {
-        let categoriesListModule = CategoriesListModule.createModule(categoriesListState: .choice)
-        navigationController.modalTransitionStyle = .flipHorizontal
-        //navigationController.modalPresentationStyle = .automatic
+        let categoriesListModule = CategoriesListModule.createModule(output: self, categoriesListState: .choice)
         navigationController.present(categoriesListModule.view, animated: true)
     }
+}
+
+extension CreateProductRouter: CategoriesListModuleOutput {
+    //TODO
+    //SEND SELECTED CATEGORY
 }

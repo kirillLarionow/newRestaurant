@@ -117,13 +117,11 @@ class CreateProductViewController: UIViewController {
     
     private lazy var createIngredientButton: UIButton = {
         UIButton(type: .system).then {
-            $0.backgroundColor = .white
-            $0.layer.borderWidth = 1
-            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.backgroundColor = AppColor.Theme
             $0.layer.cornerRadius = 6
             $0.setTitle("Создать ингредиент", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.titleLabel?.textAlignment = .center
+            $0.setTitleColor(UIColor.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
             $0.rx
                 .tapGesture()
                 .when(.recognized)
@@ -159,13 +157,11 @@ class CreateProductViewController: UIViewController {
     
     private lazy var createProductButton: UIButton = {
         UIButton(type: .system).then {
-            $0.backgroundColor = .white
-            $0.layer.borderWidth = 1
-            $0.layer.borderColor = AppColor.Theme.cgColor
+            $0.backgroundColor = AppColor.Theme
             $0.layer.cornerRadius = 6
             $0.setTitle("Создать товар", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.titleLabel?.textAlignment = .center
+            $0.setTitleColor(UIColor.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         }
     }()
     
@@ -238,8 +234,8 @@ class CreateProductViewController: UIViewController {
         }
         
         createIngredientsStackView.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(25)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(25)
             make.top.equalTo(ingredientsListView.snp.bottom).offset(10)
             make.height.equalTo(40)
         }

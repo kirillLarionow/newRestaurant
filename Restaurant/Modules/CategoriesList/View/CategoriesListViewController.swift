@@ -9,6 +9,10 @@
 import UIKit
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
+import RxGesture
+import RxBinding
 
 enum CategoriesListState {
     case normal
@@ -28,8 +32,46 @@ class CategoriesListViewController: UIViewController {
     private lazy var mainStackView: UIStackView = {
         UIStackView().then {
             $0.axis = .vertical
+            
+            $0.addArrangedSubview(choiceStateStackViewHeader)
             $0.addArrangedSubview(tableView)
             $0.addArrangedSubview(confirmCategoryButton)
+        }
+    }()
+    
+    private lazy var choiceStateStackViewHeader: UIStackView = {
+        UIStackView().then {
+            $0.axis = .horizontal
+            $0.spacing = 16
+            $0.addArrangedSubview(closeCategoryMenuButton)
+            $0.addArrangedSubview(titleForChoiceStateLabel)
+            $0.isHidden = true
+        }
+    }()
+    
+    private lazy var titleForChoiceStateLabel: UILabel = {
+        UILabel().then {
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 18, weight: .medium)
+            $0.text = "Выбор категории"
+            $0.textAlignment = .left
+        }
+    }()
+    
+    private lazy var closeCategoryMenuButton: UIButton = {
+        UIButton(type: .system).then {
+            $0.setTitle("Назад", for: .normal)
+            $0.setTitleColor(AppColor.Theme, for: .normal)
+            $0.backgroundColor = UIColor.white
+            $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+            $0.rx
+                .tapGesture()
+                .when(.recognized)
+                .subscribe(onNext: { _ in
+                    print("choice category did close")
+                    self.dismiss(animated: true)
+                })
+                .disposed(by: disposeBag)
         }
     }()
     
@@ -58,6 +100,7 @@ class CategoriesListViewController: UIViewController {
     let categoriesCellIdentifier = "CategoriesListCellIdentifier"
     var categoriesListState: CategoriesListState = .normal
     
+    let disposeBag = DisposeBag()
     var output: CategoriesListViewOutput?
 
     override func viewDidLoad() {
@@ -81,10 +124,24 @@ extension CategoriesListViewController {
             make.trailing.top.leading.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
+        choiceStateStackViewHeader.snp.makeConstraints { make in
+            make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+        }
+        
         confirmCategoryButton.snp.makeConstraints { make in
             make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-15)
             make.height.equalTo(50)
+        }
+        
+        closeCategoryMenuButton.snp.makeConstraints { make in
+            make.width.equalTo(80)
+            make.height.equalTo(40)
+        }
+        
+        titleForChoiceStateLabel.snp.makeConstraints { make in
+           
         }
     }
 }
@@ -123,6 +180,7 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
             cell.selectionStyle = .none
             
             self.confirmCategoryButton.isHidden = false
+            self.choiceStateStackViewHeader.isHidden = false
             return cell
         }
     }
