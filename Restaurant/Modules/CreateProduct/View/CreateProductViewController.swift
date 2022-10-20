@@ -27,6 +27,7 @@ class CreateProductViewController: UIViewController {
                 .when(.recognized)
                 .subscribe(onNext: { _ in
                     print("category tap")
+                    self.output?.categoryViewDidTap()
                 })
                 .disposed(by: disposeBag)
         }
@@ -53,16 +54,14 @@ class CreateProductViewController: UIViewController {
         }
     }()
     
-    private lazy var descriptionTextField: UITextField = {
-        UITextField().then {
-                $0.placeholder = "Описание"
+    private lazy var descriptionTextView: UITextView = {
+        UITextView().then {
                 $0.backgroundColor = .white
                 $0.layer.borderWidth = 1
                 $0.layer.borderColor = AppColor.Theme.cgColor
                 $0.layer.cornerRadius = 6
-                let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
-                $0.leftViewMode = .always
-                $0.leftView = spacerView
+            $0.delegate = self
+            $0.text = "Описание"
             }
         }()
     
@@ -186,7 +185,7 @@ class CreateProductViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(categoryView)
         view.addSubview(titleTextField)
-        view.addSubview(descriptionTextField)
+        view.addSubview(descriptionTextView)
         view.addSubview(ingredientsTitleLabel)
         view.addSubview(ingredientsListView)
         view.addSubview(createIngredientsStackView)
@@ -209,7 +208,7 @@ class CreateProductViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        descriptionTextField.snp.makeConstraints { make in
+        descriptionTextView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(titleTextField.snp.bottom).offset(20)
             make.height.equalTo(80)
@@ -218,7 +217,7 @@ class CreateProductViewController: UIViewController {
         ingredientsTitleLabel.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(25)
-            make.top.equalTo(descriptionTextField.snp.bottom).offset(50)
+            make.top.equalTo(descriptionTextView.snp.bottom).offset(50)
         }
         
         ingredientsListView.snp.makeConstraints { make in
@@ -268,5 +267,19 @@ class CreateProductViewController: UIViewController {
 }
 
 extension CreateProductViewController: CreateProductViewInput {
+ 
+}
 
+extension CreateProductViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Описание" {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Описание"
+        }
+    }
 }

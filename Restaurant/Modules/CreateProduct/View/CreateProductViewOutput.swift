@@ -8,4 +8,5 @@
 
 protocol CreateProductViewOutput {
     func createIngredientButtonDidTap()
+    func categoryViewDidTap()
 }

@@ -15,8 +15,9 @@ extension CategoriesListViewController {
         private lazy var categoryStackView: UIStackView = {
             UIStackView().then {
                 $0.axis = .horizontal
-                $0.distribution = .fill
+                $0.distribution = .fillProportionally
                 $0.addArrangedSubview(categoryNameLabel)
+                $0.addArrangedSubview(choiceImageView)
             }
         }()
         
@@ -24,6 +25,12 @@ extension CategoriesListViewController {
             UILabel().then {
                 $0.textColor = .black
                 $0.font = .systemFont(ofSize: 16, weight: .bold)
+            }
+        }()
+        
+        private lazy var choiceImageView: UIImageView = {
+            UIImageView().then {
+                $0.image = UIImage(named: "chooseCategoryImage")
             }
         }()
         
@@ -48,10 +55,16 @@ extension CategoriesListViewController {
                 make.trailing.equalTo(contentView.safeAreaLayoutGuide).offset(-15)
                 make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(15)
             }
+            
+            choiceImageView.snp.makeConstraints { make in
+                make.top.bottom.equalTo(contentView.safeAreaLayoutGuide).inset(15)
+                make.width.height.equalTo(15)
+            }
         }
         
-        func setup(category: CategoryModel) {
-            self.categoryNameLabel.text = category.name
+        func setup(category: CategoriesListModel) {
+            self.categoryNameLabel.text = category.category.name
+            self.choiceImageView.isHidden = !category.isSelected
         }
     }
 }

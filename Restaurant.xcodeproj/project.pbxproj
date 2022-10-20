@@ -72,7 +72,6 @@
 		4AD318A0C4DF9018EE816215 /* EditIngredientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530ABB3FB1EDF09734F2C2F /* EditIngredientAssembly.swift */; };
 		4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */; };
 		4B4999D79BE7153968721624 /* TabBarForEmployeesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAF453B596EF7AF6B79B0 /* TabBarForEmployeesInteractorInput.swift */; };
-		4B6B57C228EC55EA003501A5 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6B57C128EC55EA003501A5 /* UIColor+Extensions.swift */; };
 		4B6BE48B28F60474005A09E7 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48A28F60473005A09E7 /* DataBaseService.swift */; };
 		4B6BE48E28F61D45005A09E7 /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */; };
 		4B70663628EC7CC700741DDC /* ProductsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70663528EC7CC700741DDC /* ProductsCell.swift */; };
@@ -286,7 +285,6 @@
 		47416A4BE2A9857A28A35154 /* ProductsTabViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabViewOutput.swift; sourceTree = "<group>"; };
 		4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B5896BA4A1374C767F8B666 /* ProductsTabModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabModuleInput.swift; sourceTree = "<group>"; };
-		4B6B57C128EC55EA003501A5 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		4B6BE48A28F60473005A09E7 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
 		4B70663528EC7CC700741DDC /* ProductsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCell.swift; sourceTree = "<group>"; };
@@ -519,7 +517,6 @@
 				CBA97B33720EF938E7BD598B /* Router */,
 				D8149F2F5A9ABEC1B87B4ED0 /* Assembly */,
 			);
-			name = EditCategory;
 			path = EditCategory;
 			sourceTree = "<group>";
 		};
@@ -707,7 +704,6 @@
 				DD7E0249540A6BDFA74BE248 /* EditCategoryInteractorOutput.swift */,
 				B44E9F3C6D857810FF16B92D /* EditCategoryInteractor.swift */,
 			);
-			name = Interactor;
 			path = Interactor;
 			sourceTree = "<group>";
 		};
@@ -768,7 +764,6 @@
 				041554BA0028DDE26C859169 /* EditCategoryViewOutput.swift */,
 				41EAF5EC9600FA63812D5306 /* EditCategoryViewController.swift */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -902,7 +897,6 @@
 			isa = PBXGroup;
 			children = (
 				4B70D5F128C3FE6900DC317E /* AppColors.swift */,
-				4B6B57C128EC55EA003501A5 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1388,7 +1382,6 @@
 				6B5A72A918EDB48AE72D6B2D /* EditCategoryRouterOutput.swift */,
 				A6EA141F9160B869F2C5E61D /* EditCategoryRouter.swift */,
 			);
-			name = Router;
 			path = Router;
 			sourceTree = "<group>";
 		};
@@ -1433,7 +1426,6 @@
 			children = (
 				76323F9E4EA65C15DD4003FA /* EditCategoryAssembly.swift */,
 			);
-			name = Assembly;
 			path = Assembly;
 			sourceTree = "<group>";
 		};
@@ -1464,7 +1456,6 @@
 				ACD8C965076D957EC61DE3D0 /* EditCategoryModuleOutput.swift */,
 				2234BD027153B4F5F10F723C /* EditCategoryPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -1796,7 +1787,6 @@
 				4B70663628EC7CC700741DDC /* ProductsCell.swift in Sources */,
 				91DC3C2FF836B5FF3ADA42DD /* TabBarForEmployeesRouter.swift in Sources */,
 				23ABB6FAEF17A48F620BD1AB /* TabBarForEmployeesAssembly.swift in Sources */,
-				4B6B57C228EC55EA003501A5 /* UIColor+Extensions.swift in Sources */,
 				C10EA12E0570327250ABDC11 /* SalesTabViewInput.swift in Sources */,
 				AE9614346988B89B0F5566C5 /* SalesTabViewOutput.swift in Sources */,
 				4B6BE48B28F60474005A09E7 /* DataBaseService.swift in Sources */,

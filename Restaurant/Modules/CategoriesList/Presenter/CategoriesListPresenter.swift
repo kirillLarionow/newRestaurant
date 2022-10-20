@@ -13,6 +13,11 @@ class CategoriesListPresenter {
     var router: CategoriesListRouterInput?
     
     var categories: [CategoryModel] = []
+    var categoriesListState: CategoriesListState
+    
+    init(categoriesListState: CategoriesListState) {
+        self.categoriesListState = categoriesListState
+    }
 }
 
 extension CategoriesListPresenter: CategoriesListModuleInput {
@@ -23,10 +28,6 @@ extension CategoriesListPresenter: CategoriesListViewOutput {
     func viewDidLoad() {
         interactor?.getCategories()
     }
-    
-//    func viewWillAppear() {
-//        interactor?.getIngredients()
-//    }
     
     func editCategoryDidTap(editCategory: CategoryModel) {
         guard let navigationController = view?.navigationController else {
@@ -40,14 +41,14 @@ extension CategoriesListPresenter: CategoriesListViewOutput {
 
 extension CategoriesListPresenter: CategoriesListInteractorOutput {
     func fetchCategorieData(categories: [CategoryModel]) {
-        view?.updateView(categories: categories)
+        view?.updateView(categories: categories, categoriesListState: categoriesListState)
     }
 }
 
 extension CategoriesListPresenter: CategoriesListRouterOutput {
     func updateCategoriesList() {
         interactor?.getCategories()
-        view?.updateView(categories: categories)
+        view?.updateView(categories: categories, categoriesListState: categoriesListState)
     }
 }
 

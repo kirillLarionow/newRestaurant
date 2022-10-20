@@ -10,18 +10,54 @@ import UIKit
 import SnapKit
 import Then
 
+enum CategoriesListState {
+    case normal
+    case choice
+}
+
+class CategoriesListModel {
+    let category: CategoryModel
+    var isSelected: Bool = false
+    
+    init(category: CategoryModel) {
+        self.category = category
+    }
+}
+
 class CategoriesListViewController: UIViewController {
+    private lazy var mainStackView: UIStackView = {
+        UIStackView().then {
+            $0.axis = .vertical
+            $0.addArrangedSubview(tableView)
+            $0.addArrangedSubview(confirmCategoryButton)
+        }
+    }()
+    
     private lazy var tableView: UITableView = {
         UITableView().then {
             $0.delegate = self
             $0.dataSource = self
             $0.separatorColor = AppColor.Theme
+            $0.allowsMultipleSelection = false
             $0.register(CategoriesListCell.self, forCellReuseIdentifier: categoriesCellIdentifier)
         }
     }()
     
-    var categories: [CategoryModel] = []
+    private lazy var confirmCategoryButton: UIButton = {
+        UIButton(type: .system).then {
+            $0.setTitle("Подтвердить", for: .normal)
+            $0.setTitleColor(UIColor.white, for: .normal)
+            $0.backgroundColor = AppColor.Theme
+            $0.layer.cornerRadius = 6
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+            $0.isHidden = true
+        }
+    }()
+    
+    var categories: [CategoriesListModel] = []
     let categoriesCellIdentifier = "CategoriesListCellIdentifier"
+    var categoriesListState: CategoriesListState = .normal
+    
     var output: CategoriesListViewOutput?
 
     override func viewDidLoad() {
@@ -35,14 +71,20 @@ extension CategoriesListViewController {
     private func setupView() {
         view.backgroundColor = .white
         title = "Редактирование категории"
-        view.addSubview(tableView)
+        view.addSubview(mainStackView)
         
         makeConstraints()
     }
     
     private func makeConstraints() {
-        tableView.snp.makeConstraints { make in
+        mainStackView.snp.makeConstraints { make in
             make.trailing.top.leading.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        confirmCategoryButton.snp.makeConstraints { make in
+            make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-15)
+            make.height.equalTo(50)
         }
     }
 }
@@ -53,22 +95,61 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: categoriesCellIdentifier, for: indexPath)
-                as? CategoriesListCell
-        else {
-            fatalError()
+        switch categoriesListState {
+        case .normal:
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: categoriesCellIdentifier, for: indexPath)
+                    as? CategoriesListCell
+            else {
+                fatalError()
+            }
+            
+            let category = categories[indexPath.row]
+            cell.setup(category: category)
+            cell.selectionStyle = .none
+            
+            return cell
+            
+        case .choice:
+            guard
+                let cell = tableView.dequeueReusableCell(withIdentifier: categoriesCellIdentifier, for: indexPath)
+                    as? CategoriesListCell
+            else {
+                fatalError()
+            }
+            
+            let category = categories[indexPath.row]
+            cell.setup(category: category)
+            cell.selectionStyle = .none
+            
+            self.confirmCategoryButton.isHidden = false
+            return cell
         }
-        
-        cell.selectionStyle = .none
-        cell.setup(category: categories[indexPath.row])
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let editCategory = categories[indexPath.row]
-        output?.editCategoryDidTap(editCategory: editCategory)
+        switch categoriesListState {
+        case .normal:
+            let editCategory = categories[indexPath.row].category
+            output?.editCategoryDidTap(editCategory: editCategory)
+        case .choice:
+            let selectedCategories = categories
+            selectedCategories.forEach({ $0.isSelected = false })
+            let selectedCategory = selectedCategories[indexPath.row]
+            selectedCategory.isSelected = true
+            tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        switch categoriesListState {
+        case .normal:
+           break
+        case .choice:
+            let selectedCategories = categories
+            selectedCategories.forEach({ $0.isSelected = false })
+            tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,8 +158,9 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension CategoriesListViewController: CategoriesListViewInput {
-    func updateView(categories: [CategoryModel]) {
-        self.categories = categories
+    func updateView(categories: [CategoryModel], categoriesListState: CategoriesListState) {
+        self.categories = categories.map { CategoriesListModel(category: $0) }
+        self.categoriesListState = categoriesListState
         tableView.reloadData()
     }
 }

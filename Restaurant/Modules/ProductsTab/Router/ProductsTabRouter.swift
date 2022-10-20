@@ -40,7 +40,7 @@ extension ProductsTabRouter: ProductsTabRouterInput {
     }
     
     func goToCategoriesListModule(navigationController: UINavigationController) {
-        let categoriesListModule = CategoriesListModule.createModule()
+        let categoriesListModule = CategoriesListModule.createModule(categoriesListState: .normal)
         navigationController.pushViewController(categoriesListModule.view, animated: true)
     }
 }

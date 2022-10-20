@@ -11,5 +11,5 @@ import UIKit
 protocol CategoriesListViewInput {
     var navigationController: UINavigationController? { get }
     
-    func updateView(categories: [CategoryModel])
+    func updateView(categories: [CategoryModel], categoriesListState: CategoriesListState)
 }

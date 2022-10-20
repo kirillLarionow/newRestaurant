@@ -1,5 +1,5 @@
 //
-//  CategoriesListCategoriesListAssembly.swift
+//  CategoriesListAssembly.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 19/10/2022.
@@ -11,9 +11,9 @@ import UIKit
 typealias CategoriesListModule = BaseModule<CategoriesListModuleInput, CategoriesListModuleOutput>
 
 extension CategoriesListModule {
-    static func createModule(output: CategoriesListModuleOutput? = nil) -> CategoriesListModule {
+    static func createModule(output: CategoriesListModuleOutput? = nil, categoriesListState: CategoriesListState) -> CategoriesListModule {
         let controller = CategoriesListViewController()
-        let presenter = CategoriesListPresenter()
+        let presenter = CategoriesListPresenter(categoriesListState: categoriesListState)
         let interactor = CategoriesListInteractor()
         let router = CategoriesListRouter()
 

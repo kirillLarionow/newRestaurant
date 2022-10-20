@@ -10,4 +10,5 @@ import UIKit
 
 protocol CreateProductRouterInput {
     func goToCreateIngredientModule(navigationController: UINavigationController)
+    func openCategoriesListModule(navigationController: UINavigationController)
 }

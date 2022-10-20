@@ -17,4 +17,11 @@ extension CreateProductRouter: CreateProductRouterInput {
         let createIngredientModule = CreateIngredientModule.createModule()
         navigationController.pushViewController(createIngredientModule.view, animated: true)
     }
+    
+    func openCategoriesListModule(navigationController: UINavigationController) {
+        let categoriesListModule = CategoriesListModule.createModule(categoriesListState: .choice)
+        navigationController.modalTransitionStyle = .flipHorizontal
+        //navigationController.modalPresentationStyle = .automatic
+        navigationController.present(categoriesListModule.view, animated: true)
+    }
 }
