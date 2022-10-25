@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductRouterInput.swift
+//  CreateProductRouterInput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -11,4 +11,5 @@ import UIKit
 protocol CreateProductRouterInput {
     func goToCreateIngredientModule(navigationController: UINavigationController)
     func openCategoriesListModule(navigationController: UINavigationController)
+    func openIngredientsListModule(navigationController: UINavigationController)
 }

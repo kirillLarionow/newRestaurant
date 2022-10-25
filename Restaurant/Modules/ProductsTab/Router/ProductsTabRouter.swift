@@ -30,7 +30,7 @@ extension ProductsTabRouter: ProductsTabRouterInput {
     }
     
     func goToIngredientsListModule(navigationController: UINavigationController) {
-        let ingredientsListModule = IngredientsListModule.createModule()
+        let ingredientsListModule = IngredientsListModule.createModule(ingredientsListSate: .normal)
         navigationController.pushViewController(ingredientsListModule.view, animated: true)
     }
     

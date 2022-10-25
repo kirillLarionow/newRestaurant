@@ -11,9 +11,9 @@ import UIKit
 typealias IngredientsListModule = BaseModule<IngredientsListModuleInput, IngredientsListModuleOutput>
 
 extension IngredientsListModule {
-    static func createModule(output: IngredientsListModuleOutput? = nil) -> IngredientsListModule {
+    static func createModule(output: IngredientsListModuleOutput? = nil, ingredientsListSate: IngredientsListState) -> IngredientsListModule {
         let controller = IngredientsListViewController()
-        let presenter = IngredientsListPresenter()
+        let presenter = IngredientsListPresenter(ingredientsListState: ingredientsListSate)
         let interactor = IngredientsListInteractor()
         let router = IngredientsListRouter()
 

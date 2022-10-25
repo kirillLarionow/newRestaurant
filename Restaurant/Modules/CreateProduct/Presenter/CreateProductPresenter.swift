@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductPresenter.swift
+//  CreateProductPresenter.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -33,6 +33,14 @@ extension CreateProductPresenter: CreateProductViewOutput {
         
         router?.openCategoriesListModule(navigationController: navigationController)
     }
+    
+    func addIngredientsImageViewDidTap() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.openIngredientsListModule(navigationController: navigationController)
+    }
 }
 
 extension CreateProductPresenter: CreateProductInteractorOutput {
@@ -40,5 +48,11 @@ extension CreateProductPresenter: CreateProductInteractorOutput {
 }
 
 extension CreateProductPresenter: CreateProductRouterOutput {
-
+    func getCategoryToProduct(category: CategoryModel) {
+        view?.updateCategory(category: category)
+    }
+    
+    func getIngredientsToProduct(ingredients: [IngredientModel]) {
+        view?.updateIngredients(ingredients: ingredients)
+    }
 }

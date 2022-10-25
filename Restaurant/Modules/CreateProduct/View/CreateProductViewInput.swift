@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductViewInput.swift
+//  CreateProductViewInput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -10,4 +10,7 @@ import UIKit
 
 protocol CreateProductViewInput {
     var navigationController: UINavigationController? { get }
+    
+    func updateCategory(category: CategoryModel)
+    func updateIngredients(ingredients: [IngredientModel])
 }

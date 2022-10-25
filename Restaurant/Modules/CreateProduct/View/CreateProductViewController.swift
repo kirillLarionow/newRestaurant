@@ -91,6 +91,7 @@ class CreateProductViewController: UIViewController {
             $0.textColor = .black
             $0.backgroundColor = view.backgroundColor
             $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.numberOfLines = 0
         }
     }()
     
@@ -100,6 +101,11 @@ class CreateProductViewController: UIViewController {
         let image = UIImage(systemName: "plus.circle", withConfiguration: configuration)
         let imageView = UIImageView(image: image)
         imageView.tintColor = AppColor.Theme
+        imageView.rx
+            .tapGesture().when(.recognized).subscribe { _ in
+                self.output?.addIngredientsImageViewDidTap()
+            }
+
         return imageView
     }()
     
@@ -133,25 +139,45 @@ class CreateProductViewController: UIViewController {
         }
     }()
 
+    private lazy var mainCaloriesStackView: UIStackView = {
+        UIStackView().then {
+            $0.backgroundColor = view.backgroundColor
+            $0.axis = .vertical
+            $0.clipsToBounds = true
+            $0.addArrangedSubview(caloriesStackView)
+            $0.addArrangedSubview(caloriesBottomBorderView)
+        }
+    }()
+    
     private lazy var caloriesStackView: UIStackView = {
         UIStackView().then {
-            $0.backgroundColor = .white
-            $0.layer.borderWidth = 1
-            $0.layer.borderColor = AppColor.Theme.cgColor
-            $0.layer.cornerRadius = 6
+            $0.backgroundColor = view.backgroundColor
             $0.axis = .horizontal
-            $0.distribution = .fill
+            $0.distribution = .fillEqually
+            $0.spacing = 8
             $0.clipsToBounds = true
+            $0.addArrangedSubview(countOfCalories)
             $0.addArrangedSubview(caloriesLabel)
+        }
+    }()
+    
+    private lazy var countOfCalories: UILabel = {
+        UILabel().then {
+            $0.text = "0"
+            $0.textColor = .black
+            $0.backgroundColor = view.backgroundColor
+            $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.textAlignment = .center
         }
     }()
     
     private lazy var caloriesLabel: UILabel = {
         UILabel().then {
-            $0.text = "Калорий: 0"
+            $0.text = "калорий"
             $0.textColor = .black
             $0.backgroundColor = view.backgroundColor
             $0.font = .systemFont(ofSize: 14, weight: .medium)
+            $0.textAlignment = .center
         }
     }()
     
@@ -162,6 +188,12 @@ class CreateProductViewController: UIViewController {
             $0.setTitle("Создать товар", for: .normal)
             $0.setTitleColor(UIColor.white, for: .normal)
             $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+        }
+    }()
+    
+    private lazy var caloriesBottomBorderView: UIView = {
+        UIView().then {
+            $0.backgroundColor = AppColor.Theme
         }
     }()
     
@@ -185,7 +217,7 @@ class CreateProductViewController: UIViewController {
         view.addSubview(ingredientsTitleLabel)
         view.addSubview(ingredientsListView)
         view.addSubview(createIngredientsStackView)
-        view.addSubview(caloriesStackView)
+        view.addSubview(mainCaloriesStackView)
         view.addSubview(createProductButton)
         
         categoryView.snp.makeConstraints { make in
@@ -240,16 +272,11 @@ class CreateProductViewController: UIViewController {
             make.height.equalTo(40)
         }
         
-        caloriesStackView.snp.makeConstraints { make in
-            make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+        mainCaloriesStackView.snp.makeConstraints { make in
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(createIngredientsStackView.snp.bottom).offset(10)
             make.height.equalTo(40)
             make.width.equalTo(view.bounds.width / 2)
-        }
-    
-        caloriesLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(10)
-            make.trailing.equalToSuperview().inset(10)
         }
         
         createProductButton.snp.makeConstraints { make in
@@ -258,12 +285,23 @@ class CreateProductViewController: UIViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(40)
         }
+        
+        caloriesBottomBorderView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+        }
 
     }
 }
 
 extension CreateProductViewController: CreateProductViewInput {
- 
+    func updateCategory(category: CategoryModel) {
+        self.categoryLabel.text = category.name
+    }
+    
+    func updateIngredients(ingredients: [IngredientModel]) {
+        self.ingredientsLabel.text = ingredients.map({ $0.name }).joined(separator: ", ")
+    }
+    
 }
 
 extension CreateProductViewController: UITextViewDelegate {

@@ -37,6 +37,14 @@ extension CategoriesListPresenter: CategoriesListViewOutput {
         router?.goToEditCategoryModule(editCategory: editCategory, navigationController: navigationController)
         print(editCategory)
     }
+    
+    func confirmCategoryButtonDidTap() {
+        guard let category = view?.category else {
+            return
+        }
+        
+        output?.setupCategoryInCreateProduct(category: category)
+    }
 }
 
 extension CategoriesListPresenter: CategoriesListInteractorOutput {

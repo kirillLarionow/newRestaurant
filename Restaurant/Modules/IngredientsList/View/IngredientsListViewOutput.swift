@@ -1,5 +1,5 @@
 //
-//  IngredientsListIngredientsListViewOutput.swift
+//  IngredientsListViewOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 18/10/2022.
@@ -10,4 +10,5 @@ protocol IngredientsListViewOutput {
     func viewDidLoad()
     func viewWillAppear()
     func editIngredientDidTap(editIngredient: IngredientModel)
+    func confirmCategoryButtonDidTap()
 }

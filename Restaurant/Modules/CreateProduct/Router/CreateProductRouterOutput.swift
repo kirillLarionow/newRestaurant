@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductRouterOutput.swift
+//  CreateProductRouterOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CreateProductRouterOutput {
-
+    func getCategoryToProduct(category: CategoryModel)
+    func getIngredientsToProduct(ingredients: [IngredientModel])
 }

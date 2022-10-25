@@ -14,11 +14,6 @@ import RxSwift
 import RxGesture
 import RxBinding
 
-enum CategoriesListState {
-    case normal
-    case choice
-}
-
 class CategoriesListModel {
     let category: CategoryModel
     var isSelected: Bool = false
@@ -68,7 +63,7 @@ class CategoriesListViewController: UIViewController {
                 .tapGesture()
                 .when(.recognized)
                 .subscribe(onNext: { _ in
-                    print("choice category did close")
+                    print("categories did close")
                     self.dismiss(animated: true)
                 })
                 .disposed(by: disposeBag)
@@ -93,6 +88,14 @@ class CategoriesListViewController: UIViewController {
             $0.layer.cornerRadius = 6
             $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
             $0.isHidden = true
+            $0.rx
+                .tapGesture()
+                .when(.recognized)
+                .subscribe(onNext: { _ in
+                    print("Confirm category did tap")
+                    self.dismiss(animated: true)
+                    self.output?.confirmCategoryButtonDidTap()
+                })
         }
     }()
     
@@ -138,10 +141,6 @@ extension CategoriesListViewController {
         closeCategoryMenuButton.snp.makeConstraints { make in
             make.width.equalTo(80)
             make.height.equalTo(40)
-        }
-        
-        titleForChoiceStateLabel.snp.makeConstraints { make in
-           
         }
     }
 }
@@ -216,6 +215,16 @@ extension CategoriesListViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension CategoriesListViewController: CategoriesListViewInput {
+    var category: CategoryModel? {
+        switch categoriesListState {
+        case .normal:
+            return nil
+        case .choice:
+            let category = categories.first(where: { $0.isSelected })
+            return category?.category
+        }
+    }
+    
     func updateView(categories: [CategoryModel], categoriesListState: CategoriesListState) {
         self.categories = categories.map { CategoriesListModel(category: $0) }
         self.categoriesListState = categoriesListState

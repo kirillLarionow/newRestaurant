@@ -9,4 +9,5 @@
 protocol CategoriesListViewOutput {
     func viewDidLoad()
     func editCategoryDidTap(editCategory: CategoryModel)
+    func confirmCategoryButtonDidTap()
 }

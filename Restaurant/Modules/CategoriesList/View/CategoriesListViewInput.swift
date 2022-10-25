@@ -10,6 +10,7 @@ import UIKit
 
 protocol CategoriesListViewInput {
     var navigationController: UINavigationController? { get }
+    var category: CategoryModel? { get }
     
     func updateView(categories: [CategoryModel], categoriesListState: CategoriesListState)
 }

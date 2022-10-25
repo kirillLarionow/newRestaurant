@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductRouter.swift
+//  CreateProductRouter.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -22,9 +22,21 @@ extension CreateProductRouter: CreateProductRouterInput {
         let categoriesListModule = CategoriesListModule.createModule(output: self, categoriesListState: .choice)
         navigationController.present(categoriesListModule.view, animated: true)
     }
+    
+    func openIngredientsListModule(navigationController: UINavigationController) {
+        let ingredientsListModule = IngredientsListModule.createModule(output: self, ingredientsListSate: .choice)
+        navigationController.present(ingredientsListModule.view, animated: true)
+    }
 }
 
 extension CreateProductRouter: CategoriesListModuleOutput {
-    //TODO
-    //SEND SELECTED CATEGORY
+    func setupCategoryInCreateProduct(category: CategoryModel) {
+        output?.getCategoryToProduct(category: category)
+    }
+}
+
+extension CreateProductRouter: IngredientsListModuleOutput {
+    func setupIngredientsToCreateProduct(ingredients: [IngredientModel]) {
+        output?.getIngredientsToProduct(ingredients: ingredients)
+    }
 }

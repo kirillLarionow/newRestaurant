@@ -10,6 +10,7 @@ import UIKit
 
 protocol IngredientsListViewInput {
     var navigationController: UINavigationController? { get }
+    var ingredientsForCreateproduct: [IngredientModel]? { get }
     
-    func updateView(ingredients: [IngredientModel])
+    func updateView(ingredients: [IngredientModel], ingredientsListState: IngredientsListState)
 }

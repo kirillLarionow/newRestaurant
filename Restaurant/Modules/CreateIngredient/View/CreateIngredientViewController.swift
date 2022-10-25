@@ -86,6 +86,7 @@ class CreateIngredientViewController: UIViewController {
             $0.leftViewMode = .always
             $0.leftView = spacerView
             $0.keyboardType = .phonePad
+            $0.delegate = self
         }
     }()
     
@@ -175,9 +176,34 @@ extension CreateIngredientViewController: UITextFieldDelegate {
             let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
             let typedCharacterSet = CharacterSet(charactersIn: string)
             let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
-            return alphabet
+            
+            let currentText = textField.text ?? ""
+
+            guard let stringRange = Range(range, in: currentText) else { return false }
+
+          
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            return alphabet && updatedText.count <= 16
+        
+        } else if textField == caloriesPerGramTextField {
+            let allowedCharacters = "1234567890"
+            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+            let typedCharacterSet = CharacterSet(charactersIn: string)
+            let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            
+            let currentText = textField.text ?? ""
+
+            guard let stringRange = Range(range, in: currentText) else { return false }
+
+          
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            return alphabet && updatedText.count <= 3
+            
         } else {
             return false
         }
     }
 }
+

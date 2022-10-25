@@ -1,5 +1,5 @@
 //
-//  IngredientsListIngredientsListInteractorOutput.swift
+//  IngredientsListInteractorOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 18/10/2022.

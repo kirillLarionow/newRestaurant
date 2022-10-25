@@ -1,5 +1,5 @@
 //
-//  IngredientsListIngredientsListPresenter.swift
+//  IngredientsListPresenter.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 18/10/2022.
@@ -13,6 +13,12 @@ class IngredientsListPresenter {
     var router: IngredientsListRouterInput?
     
     var ingredients: [IngredientModel] = []
+    
+    var ingredientsListState: IngredientsListState
+    
+    init(ingredientsListState: IngredientsListState) {
+        self.ingredientsListState = ingredientsListState
+    }
 }
 
 extension IngredientsListPresenter: IngredientsListModuleInput {
@@ -36,18 +42,27 @@ extension IngredientsListPresenter: IngredientsListViewOutput {
         router?.goToEditIngredientModule(editIngredient: editIngredient, navigationController: navigationController)
         print(editIngredient)
     }
+    
+    func confirmCategoryButtonDidTap() {
+        guard let ingredients = view?.ingredientsForCreateproduct else {
+            return
+        }
+        
+        output?.setupIngredientsToCreateProduct(ingredients: ingredients)
+        print(ingredients)
+    }
 }
 
 extension IngredientsListPresenter: IngredientsListInteractorOutput {
     func fetchIngredientsData(ingredients: [IngredientModel]) {
-        view?.updateView(ingredients: ingredients)
+        view?.updateView(ingredients: ingredients, ingredientsListState: ingredientsListState)
     }
 }
 
 extension IngredientsListPresenter: IngredientsListRouterOutput {
     func updateIngredientsList() {
         interactor?.getIngredients()
-        view?.updateView(ingredients: ingredients)
+        view?.updateView(ingredients: ingredients, ingredientsListState: ingredientsListState)
     }
 }
 

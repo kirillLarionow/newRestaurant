@@ -1,5 +1,5 @@
 //
-//  CategoriesListCategoriesListModuleOutput.swift
+//  CategoriesListModuleOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 19/10/2022.
@@ -7,5 +7,5 @@
 //
 
 protocol CategoriesListModuleOutput {
-
+    func setupCategoryInCreateProduct(category: CategoryModel)
 }

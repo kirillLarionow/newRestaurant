@@ -134,7 +134,16 @@ extension CreateCategoryViewController: UITextFieldDelegate {
             let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
             let typedCharacterSet = CharacterSet(charactersIn: string)
             let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
-            return alphabet
+            
+            let currentText = textField.text ?? ""
+
+            guard let stringRange = Range(range, in: currentText) else { return false }
+
+          
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            return alphabet && updatedText.count <= 22
+        
         } else {
             return false
         }
