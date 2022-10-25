@@ -23,12 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let welcomePageKey = UserDefaults.standard.bool(forKey: "welcomePage")
         if welcomePageKey {
-//            let loginPageModule = LoginPageModule.createModule()
-//            window?.rootViewController = loginPageModule.view
-            
-            let foo = CreateProductModule.createModule()
-            let nav = UINavigationController(rootViewController: foo.view)
-            window?.rootViewController = nav
+            let loginPageModule = LoginPageModule.createModule()
+            window?.rootViewController = loginPageModule.view
         } else {
             let welcomePageModule = WelcomePageModule.createModule()
             window?.rootViewController = welcomePageModule.view
