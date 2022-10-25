@@ -53,6 +53,6 @@ extension CreateProductPresenter: CreateProductRouterOutput {
     }
     
     func getIngredientsToProduct(ingredients: [IngredientModel]) {
-        view?.updateIngredients(ingredients: ingredients)
+        view?.updateIngredientsAndCalories(ingredients: ingredients)
     }
 }

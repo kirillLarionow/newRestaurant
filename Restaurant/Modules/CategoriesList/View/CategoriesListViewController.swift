@@ -99,6 +99,16 @@ class CategoriesListViewController: UIViewController {
         }
     }()
     
+    private lazy var errorLabel: UILabel = {
+        UILabel().then {
+            $0.textColor = UIColor.gray
+            $0.font = .systemFont(ofSize: 16, weight: .bold)
+            $0.isHidden = true
+            $0.numberOfLines = 0
+            $0.textAlignment = .center
+        }
+    }()
+    
     var categories: [CategoriesListModel] = []
     let categoriesCellIdentifier = "CategoriesListCellIdentifier"
     var categoriesListState: CategoriesListState = .normal
@@ -118,29 +128,68 @@ extension CategoriesListViewController {
         view.backgroundColor = .white
         title = "Редактирование категории"
         view.addSubview(mainStackView)
+        view.addSubview(errorLabel)
+        
+        switch categoriesListState {
+        case .normal:
+            if categories.count == 0 {
+                errorLabel.isHidden = false
+                errorLabel.text = "Создайте категорию или обновите страницу!"
+                mainStackView.isHidden = true
+                choiceStateStackViewHeader.isHidden = true
+            } else {
+                errorLabel.isHidden = true
+                mainStackView.isHidden = false
+                choiceStateStackViewHeader.isHidden = true
+            }
+        case .choice:
+            if categories.count == 0 {
+                errorLabel.isHidden = false
+                errorLabel.text = "Создайте категорию или обновите страницу!"
+                mainStackView.isHidden = true
+                choiceStateStackViewHeader.isHidden = false
+            } else {
+                errorLabel.isHidden = true
+                mainStackView.isHidden = false
+                choiceStateStackViewHeader.isHidden = false
+            }
+        }
         
         makeConstraints()
     }
     
     private func makeConstraints() {
-        mainStackView.snp.makeConstraints { make in
-            make.trailing.top.leading.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        choiceStateStackViewHeader.snp.makeConstraints { make in
-            make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
-            make.top.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        confirmCategoryButton.snp.makeConstraints { make in
-            make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-15)
-            make.height.equalTo(50)
-        }
-        
-        closeCategoryMenuButton.snp.makeConstraints { make in
-            make.width.equalTo(80)
-            make.height.equalTo(40)
+        switch categoriesListState {
+        case .normal:
+            mainStackView.snp.makeConstraints { make in
+                make.trailing.top.leading.bottom.equalTo(view.safeAreaLayoutGuide)
+            }
+            
+            errorLabel.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+            }
+        case .choice:
+            mainStackView.snp.makeConstraints { make in
+                make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+                make.top.equalTo(view.safeAreaLayoutGuide).inset(15)
+            }
+            
+            confirmCategoryButton.snp.makeConstraints { make in
+                make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+                make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-15)
+                make.height.equalTo(50)
+            }
+            
+            closeCategoryMenuButton.snp.makeConstraints { make in
+                make.width.equalTo(80)
+                make.height.equalTo(40)
+            }
+            
+            errorLabel.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(15)
+            }
         }
     }
 }
@@ -228,6 +277,7 @@ extension CategoriesListViewController: CategoriesListViewInput {
     func updateView(categories: [CategoryModel], categoriesListState: CategoriesListState) {
         self.categories = categories.map { CategoriesListModel(category: $0) }
         self.categoriesListState = categoriesListState
+        setupView()
         tableView.reloadData()
     }
 }

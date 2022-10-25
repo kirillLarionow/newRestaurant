@@ -298,8 +298,11 @@ extension CreateProductViewController: CreateProductViewInput {
         self.categoryLabel.text = category.name
     }
     
-    func updateIngredients(ingredients: [IngredientModel]) {
+    func updateIngredientsAndCalories(ingredients: [IngredientModel]) {
         self.ingredientsLabel.text = ingredients.map({ $0.name }).joined(separator: ", ")
+        let calories = ingredients.map({ $0.calories })
+        self.countOfCalories.text = "\(calories.reduce(0, +))"
+        self.caloriesLabel.text = "ккал."
     }
     
 }

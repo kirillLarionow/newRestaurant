@@ -260,14 +260,11 @@ extension IngredientsListViewController: UITableViewDelegate, UITableViewDataSou
                 fatalError()
             }
             
-//            tableView.isUserInteractionEnabled = false
-            
             cell.selectionStyle = .none
             cell.setup(ingredient: ingredients[indexPath.row])
             
             self.confirmIngredientsButton.isHidden = false
             self.choiceStateStackViewHeader.isHidden = false
-            
             
             return cell
         }

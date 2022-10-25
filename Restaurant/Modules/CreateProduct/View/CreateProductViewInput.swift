@@ -12,5 +12,5 @@ protocol CreateProductViewInput {
     var navigationController: UINavigationController? { get }
     
     func updateCategory(category: CategoryModel)
-    func updateIngredients(ingredients: [IngredientModel])
+    func updateIngredientsAndCalories(ingredients: [IngredientModel])
 }
