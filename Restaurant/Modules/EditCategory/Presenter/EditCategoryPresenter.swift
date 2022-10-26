@@ -39,7 +39,6 @@ extension EditCategoryPresenter: EditCategoryViewOutput {
         
         let oldCategory = self.category
         interactor?.editCategory(categoryName: categoryName, oldCategory: oldCategory)
-        view?.showEditCategorySuccess(text: "Категория успешно изменена!")
     }
     
   
@@ -48,6 +47,10 @@ extension EditCategoryPresenter: EditCategoryViewOutput {
 extension EditCategoryPresenter: EditCategoryInteractorOutput {
     func udpateCategoriesList() {
         output?.udpateCategoriesList()
+    }
+    
+    func successEditCategory() {
+        view?.showEditCategorySuccess(text: "Категория успешно изменена!")
     }
 }
 

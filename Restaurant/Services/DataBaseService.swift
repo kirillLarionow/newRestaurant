@@ -106,18 +106,29 @@ class DataBaseService {
                           oldCategory: CategoryModel,
                           completion: @escaping (Result<CategoryModel, Error>) -> ()) {
         do {
-            
+
             categoriesReference.document(oldCategory.name).delete()
-            
+
             categoriesReference.document(category.name).setData([
                "id" :  oldCategory.id,
                "name" : category.name
             ])
-            
+
             completion(.success(category))
         } catch {
             completion(.failure("хз че тут сделать " as! Error))
         }
+        
+        
+        // еще поменять в create на category.id
+//        categoriesReference.document(oldCategory.id).updateData([
+//                                                                "name" : category.name]) { error in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                completion(.success(category))
+//            }
+//        }
     }
     
     func createProduct(product: ProductModel, completion: @escaping(Result<ProductModel, Error>) -> ()) {

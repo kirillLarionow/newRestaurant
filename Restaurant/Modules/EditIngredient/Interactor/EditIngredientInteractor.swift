@@ -20,8 +20,9 @@ extension EditIngredientInteractor: EditIngredientInteractorInput {
         DataBaseService.shared.udpateIngredient(ingredient: ingredient, oldIngredient: oldIngredient) { result in
             switch result {
             case .success(let success):
-                self.output?.updateIngredientsList()
                 print(success)
+                self.output?.updateIngredientsList()
+                self.output?.successEditIngredient()
             case .failure(let error):
                 print(error)
             }

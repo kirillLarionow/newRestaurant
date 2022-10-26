@@ -10,4 +10,5 @@ import Foundation
 
 protocol EditCategoryInteractorOutput {
     func udpateCategoriesList()
+    func successEditCategory()
 }

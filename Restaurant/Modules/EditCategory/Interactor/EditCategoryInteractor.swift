@@ -17,8 +17,9 @@ extension EditCategoryInteractor: EditCategoryInteractorInput {
         DataBaseService.shared.udpateCategory(category: category, oldCategory: oldCategory) { result in
             switch result {
             case .success(let category):
-                self.output?.udpateCategoriesList()
                 print(category)
+                self.output?.udpateCategoriesList()
+                self.output?.successEditCategory()
             case .failure(let error):
                 print(error)
             }

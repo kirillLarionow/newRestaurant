@@ -1,5 +1,5 @@
 //
-//  CreateCategoryCreateCategoryInteractorOutput.swift
+//  CreateCategoryInteractorOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 19/10/2022.
@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CreateCategoryInteractorOutput {
-
+    func successCreateCategory()
 }

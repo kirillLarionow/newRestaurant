@@ -28,7 +28,6 @@ extension CreateCategoryPresenter: CreateCategoryViewOutput {
         }
         
         interactor?.createCategory(categoryName: categoryName)
-        view?.showCreateCategorySuccess(text: "Категория успешно создана!")
     }
     
     func closeCurrentModule() {
@@ -41,7 +40,9 @@ extension CreateCategoryPresenter: CreateCategoryViewOutput {
 }
 
 extension CreateCategoryPresenter: CreateCategoryInteractorOutput {
-
+    func successCreateCategory() {
+        view?.showCreateCategorySuccess(text: "Категория успешно создана!")
+    }
 }
 
 extension CreateCategoryPresenter: CreateCategoryRouterOutput {

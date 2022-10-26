@@ -35,7 +35,6 @@ extension CreateIngredientPresenter: CreateIngredientViewOutput {
         }
         
         interactor?.createIngredient(ingredientName: ingredientName, calories: ingredientCalories)
-        view?.showCreateIngredientSuccess(text: "Ингредиент успешно создан!")
     }
     
     func closeCurrentModule() {
@@ -48,7 +47,9 @@ extension CreateIngredientPresenter: CreateIngredientViewOutput {
 }
 
 extension CreateIngredientPresenter: CreateIngredientInteractorOutput {
-
+    func successCreateIngredient() {
+        view?.showCreateIngredientSuccess(text: "Ингредиент успешно создан!")
+    }
 }
 
 extension CreateIngredientPresenter: CreateIngredientRouterOutput {

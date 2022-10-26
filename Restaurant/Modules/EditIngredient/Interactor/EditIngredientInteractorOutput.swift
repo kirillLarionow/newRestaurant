@@ -10,4 +10,5 @@ import Foundation
 
 protocol EditIngredientInteractorOutput {
     func updateIngredientsList()
+    func successEditIngredient()
 }

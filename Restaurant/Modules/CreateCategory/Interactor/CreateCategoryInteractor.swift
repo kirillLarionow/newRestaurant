@@ -17,6 +17,7 @@ extension CreateCategoryInteractor: CreateCategoryInteractorInput {
             switch result {
             case .success(let success):
                 print(success)
+                self.output?.successCreateCategory()
             case .failure(let error):
                 print(error)
             }

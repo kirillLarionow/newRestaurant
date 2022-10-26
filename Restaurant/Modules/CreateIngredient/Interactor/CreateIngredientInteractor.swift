@@ -18,6 +18,7 @@ extension CreateIngredientInteractor: CreateIngredientInteractorInput {
             switch result {
             case .success(let success):
                 print(success)
+                self.output?.successCreateIngredient()
             case .failure(let error):
                 print(error)
             }

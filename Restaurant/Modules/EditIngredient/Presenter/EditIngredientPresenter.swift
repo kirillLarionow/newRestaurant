@@ -46,13 +46,16 @@ extension EditIngredientPresenter: EditIngredientViewOutput {
         
         let oldIngredient = self.ingredient
         interactor?.editIngredient(ingredientName: ingredientName, calories: ingredientCalories, oldIngredient: oldIngredient)
-        view?.showEditIngredientSuccess(text: "Ингредиент успешно изменен!")
     }
 }
 
 extension EditIngredientPresenter: EditIngredientInteractorOutput {
     func updateIngredientsList() {
         output?.updateIngredientsList()
+    }
+    
+    func successEditIngredient() {
+        view?.showEditIngredientSuccess(text: "Ингредиент успешно изменен!")
     }
 }
 
