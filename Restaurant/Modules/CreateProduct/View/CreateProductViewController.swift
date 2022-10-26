@@ -41,7 +41,7 @@ class CreateProductViewController: UIViewController {
         }
     }()
     
-    private lazy var titleTextField: UITextField = {
+    private lazy var productTitleTextField: UITextField = {
         UITextField().then {
             $0.placeholder = "Название товара"
             $0.backgroundColor = .white
@@ -54,7 +54,7 @@ class CreateProductViewController: UIViewController {
         }
     }()
     
-    private lazy var descriptionTextView: UITextView = {
+    private lazy var productDescriptionTextView: UITextView = {
         UITextView().then {
                 $0.backgroundColor = .white
                 $0.layer.borderWidth = 1
@@ -188,6 +188,7 @@ class CreateProductViewController: UIViewController {
             $0.setTitle("Создать товар", for: .normal)
             $0.setTitleColor(UIColor.white, for: .normal)
             $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
+            $0.addTarget(self, action: #selector(createProductButtonDidTap), for: .touchUpInside)
         }
     }()
     
@@ -196,6 +197,9 @@ class CreateProductViewController: UIViewController {
             $0.backgroundColor = AppColor.Theme
         }
     }()
+    
+    var category: CategoryModel?
+    var ingredients: [IngredientModel]?
     
     let disposeBag = DisposeBag()
     
@@ -212,8 +216,8 @@ class CreateProductViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(categoryView)
-        view.addSubview(titleTextField)
-        view.addSubview(descriptionTextView)
+        view.addSubview(productTitleTextField)
+        view.addSubview(productDescriptionTextView)
         view.addSubview(ingredientsTitleLabel)
         view.addSubview(ingredientsListView)
         view.addSubview(createIngredientsStackView)
@@ -230,22 +234,22 @@ class CreateProductViewController: UIViewController {
             make.leading.equalToSuperview().inset(20)
         }
         
-        titleTextField.snp.makeConstraints { make in
+        productTitleTextField.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(categoryView.snp.bottom).offset(20)
             make.height.equalTo(40)
         }
         
-        descriptionTextView.snp.makeConstraints { make in
+        productDescriptionTextView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.top.equalTo(titleTextField.snp.bottom).offset(20)
+            make.top.equalTo(productTitleTextField.snp.bottom).offset(20)
             make.height.equalTo(80)
         }
         
         ingredientsTitleLabel.snp.makeConstraints { make in
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(25)
-            make.top.equalTo(descriptionTextView.snp.bottom).offset(50)
+            make.top.equalTo(productDescriptionTextView.snp.bottom).offset(50)
         }
         
         ingredientsListView.snp.makeConstraints { make in
@@ -293,12 +297,41 @@ class CreateProductViewController: UIViewController {
     }
 }
 
+extension CreateProductViewController {
+    @objc func createProductButtonDidTap() {
+        output?.createProductButtonDidTap()
+    }
+}
+
 extension CreateProductViewController: CreateProductViewInput {
+    var productCategory: CategoryModel? {
+        return category
+    }
+    
+    var productName: String? {
+        return productTitleTextField.text
+    }
+    
+    var productDescription: String? {
+        return productDescriptionTextView.text
+    }
+    
+    var productIngredietns: [IngredientModel]? {
+        return ingredients
+    }
+    
+    var productCalories: String? {
+        return countOfCalories.text
+    }
+    
+    
     func updateCategory(category: CategoryModel) {
+        self.category = category
         self.categoryLabel.text = category.name
     }
     
     func updateIngredientsAndCalories(ingredients: [IngredientModel]) {
+        self.ingredients = ingredients
         self.ingredientsLabel.text = ingredients.map({ $0.name }).joined(separator: ", ")
         let calories = ingredients.map({ $0.calories })
         self.countOfCalories.text = "\(calories.reduce(0, +))"

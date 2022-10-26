@@ -41,6 +41,24 @@ extension CreateProductPresenter: CreateProductViewOutput {
         
         router?.openIngredientsListModule(navigationController: navigationController)
     }
+    
+    func createProductButtonDidTap() {
+        guard
+            let productCategory = view?.productCategory,
+            let productName = view?.productName,
+            let productDescription = view?.productDescription,
+            let productIngredietns = view?.productIngredietns,
+            let productCalories = view?.productCalories
+        else {
+            return
+        }
+        
+        let product = ProductModel(name: productName, description: productDescription,
+                                   calories: Int(productCalories) ?? 0, category: productCategory,
+                                   ingredients: productIngredietns)
+        
+        interactor?.createProduct(product: product)
+    }
 }
 
 extension CreateProductPresenter: CreateProductInteractorOutput {

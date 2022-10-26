@@ -10,6 +10,11 @@ import UIKit
 
 protocol CreateProductViewInput {
     var navigationController: UINavigationController? { get }
+    var productCategory: CategoryModel? { get }
+    var productName: String? { get }
+    var productDescription: String? { get }
+    var productIngredietns: [IngredientModel]? { get }
+    var productCalories: String? { get }
     
     func updateCategory(category: CategoryModel)
     func updateIngredientsAndCalories(ingredients: [IngredientModel])

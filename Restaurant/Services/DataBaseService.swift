@@ -21,6 +21,10 @@ class DataBaseService {
         return firestore.collection("categories")
     }
     
+    private var productsReference: CollectionReference {
+        return firestore.collection("products")
+    }
+    
     private init() { }
     
     func createIngredient(ingredient: IngredientModel, completion: @escaping (Result<IngredientModel, Error>) -> ()) {
@@ -105,17 +109,24 @@ class DataBaseService {
             
             categoriesReference.document(oldCategory.name).delete()
             
-            
             categoriesReference.document(category.name).setData([
                "id" :  oldCategory.id,
                "name" : category.name
             ])
             
-        
-
             completion(.success(category))
         } catch {
             completion(.failure("хз че тут сделать " as! Error))
+        }
+    }
+    
+    func createProduct(product: ProductModel, completion: @escaping(Result<ProductModel, Error>) -> ()) {
+        productsReference.document(product.name).setData(product.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(product))
+            }
         }
     }
 }

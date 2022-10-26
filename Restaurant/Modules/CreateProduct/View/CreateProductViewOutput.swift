@@ -10,4 +10,5 @@ protocol CreateProductViewOutput {
     func createIngredientButtonDidTap()
     func categoryViewDidTap()
     func addIngredientsImageViewDidTap()
+    func createProductButtonDidTap()
 }

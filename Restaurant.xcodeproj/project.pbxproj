@@ -72,6 +72,7 @@
 		4AD318A0C4DF9018EE816215 /* EditIngredientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530ABB3FB1EDF09734F2C2F /* EditIngredientAssembly.swift */; };
 		4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */; };
 		4B3CB2462902CF30000AB9C4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CB2452902CF30000AB9C4 /* Enums.swift */; };
+		4B3E426829082D5E00D18B20 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E426729082D5E00D18B20 /* ProductModel.swift */; };
 		4B4999D79BE7153968721624 /* TabBarForEmployeesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAF453B596EF7AF6B79B0 /* TabBarForEmployeesInteractorInput.swift */; };
 		4B6BE48B28F60474005A09E7 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48A28F60473005A09E7 /* DataBaseService.swift */; };
 		4B6BE48E28F61D45005A09E7 /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */; };
@@ -286,6 +287,7 @@
 		47416A4BE2A9857A28A35154 /* ProductsTabViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabViewOutput.swift; sourceTree = "<group>"; };
 		4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B3CB2452902CF30000AB9C4 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		4B3E426729082D5E00D18B20 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		4B5896BA4A1374C767F8B666 /* ProductsTabModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabModuleInput.swift; sourceTree = "<group>"; };
 		4B6BE48A28F60473005A09E7 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
@@ -891,6 +893,7 @@
 			children = (
 				4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */,
 				4BB2ED7729002ECB0094C4E6 /* CategoryModel.swift */,
+				4B3E426729082D5E00D18B20 /* ProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1864,6 +1867,7 @@
 				D2E53B5C5FD629F95BD5457D /* CreateProductRouterOutput.swift in Sources */,
 				34005DDF1967945E0F18BFA3 /* CreateProductRouter.swift in Sources */,
 				564D64C7A15AA185583A5D1C /* CreateProductAssembly.swift in Sources */,
+				4B3E426829082D5E00D18B20 /* ProductModel.swift in Sources */,
 				4B86F9DF28FEDFD70064B1E4 /* IngredientsListCell.swift in Sources */,
 				32862F99EC324D1A4D7316D3 /* CreateIngredientViewInput.swift in Sources */,
 				DA778746266161B146375AE6 /* CreateIngredientViewOutput.swift in Sources */,
