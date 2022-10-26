@@ -23,8 +23,7 @@ struct ProductModel {
         repres["description"] = self.description
         repres["calories"] = self.calories
         repres["category"] = self.category.representation
-        repres["ingredients"] = self.ingredients
-        
+        repres["ingredients"] = self.ingredients.map({ $0.representation })
         return repres
     }
     
