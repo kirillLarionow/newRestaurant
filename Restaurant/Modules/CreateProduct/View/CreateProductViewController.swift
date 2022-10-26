@@ -338,6 +338,14 @@ extension CreateProductViewController: CreateProductViewInput {
         self.caloriesLabel.text = "ккал."
     }
     
+    func showSuccesCreateProductAlert() {
+        let alertController = UIAlertController(title: "Успешное создание товара!", message: "Товар создан", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ОК", style: .default, handler: { _ in
+            self.output?.closeCurrentModule()
+        }))
+        
+        present(alertController, animated: true)
+    }
 }
 
 extension CreateProductViewController: UITextViewDelegate {

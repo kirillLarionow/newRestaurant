@@ -59,10 +59,20 @@ extension CreateProductPresenter: CreateProductViewOutput {
         
         interactor?.createProduct(product: product)
     }
+    
+    func closeCurrentModule() {
+        guard let navigationController = view?.navigationController else {
+            return
+        }
+        
+        router?.closeCurrentModule(navigationController: navigationController)
+    }
 }
 
 extension CreateProductPresenter: CreateProductInteractorOutput {
-
+    func successCreateProduct() {
+        view?.showSuccesCreateProductAlert()
+    }
 }
 
 extension CreateProductPresenter: CreateProductRouterOutput {

@@ -27,6 +27,10 @@ extension CreateProductRouter: CreateProductRouterInput {
         let ingredientsListModule = IngredientsListModule.createModule(output: self, ingredientsListSate: .choice)
         navigationController.present(ingredientsListModule.view, animated: true)
     }
+    
+    func closeCurrentModule(navigationController: UINavigationController) {
+        navigationController.popViewController(animated: true)
+    }
 }
 
 extension CreateProductRouter: CategoriesListModuleOutput {

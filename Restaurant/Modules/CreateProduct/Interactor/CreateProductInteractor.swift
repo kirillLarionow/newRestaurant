@@ -16,6 +16,7 @@ extension CreateProductInteractor: CreateProductInteractorInput {
             switch result {
             case .success(let product):
                 print(product)
+                self.output?.successCreateProduct()
             case .failure(let error):
                 print(error.localizedDescription)
             }

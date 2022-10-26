@@ -1,5 +1,5 @@
 //
-//  CreateProductCreateProductInteractorOutput.swift
+//  CreateProductInteractorOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 05/10/2022.
@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CreateProductInteractorOutput {
-
+    func successCreateProduct()
 }

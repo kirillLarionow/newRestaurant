@@ -11,4 +11,5 @@ protocol CreateProductViewOutput {
     func categoryViewDidTap()
     func addIngredientsImageViewDidTap()
     func createProductButtonDidTap()
+    func closeCurrentModule()
 }

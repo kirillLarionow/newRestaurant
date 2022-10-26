@@ -12,4 +12,5 @@ protocol CreateProductRouterInput {
     func goToCreateIngredientModule(navigationController: UINavigationController)
     func openCategoriesListModule(navigationController: UINavigationController)
     func openIngredientsListModule(navigationController: UINavigationController)
+    func closeCurrentModule(navigationController: UINavigationController)
 }
