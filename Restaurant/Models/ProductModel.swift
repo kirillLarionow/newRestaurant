@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import ObjectMapper
 
 struct ProductModel {
     var id: String = UUID().uuidString
@@ -15,6 +16,7 @@ struct ProductModel {
     var calories: Int
     var category: CategoryModel
     var ingredients: [IngredientModel]
+   
    
     var representation: [String: Any] {
         var repres = [String: Any]()
@@ -46,14 +48,24 @@ struct ProductModel {
         guard let name = data["name"] as? String else { return nil }
         guard let description = data["description"] as? String else { return nil }
         guard let calories = data["calories"] as? Int else { return nil }
-        guard let category = data["category"] as? CategoryModel else { return nil }
-        guard let ingredients = data["ingredients"] as? [IngredientModel] else { return nil }
+        guard let category = data["category"] as? [String: Any] else { return nil }
+        guard let ingredients = data["ingredients"] as? [[String: Any]] else { return nil }
+        
+        var appendIngredients: [IngredientModel] = [IngredientModel]()
+        
+        for ingredient in ingredients {
+            appendIngredients.append(IngredientModel(id: ingredient["id"] as! String,
+                                                    name: ingredient["name"] as! String,
+                                                    calories: ingredient["calories"] as! Int)
+            )
+        }
         
         self.id = id
         self.name = name
         self.description = description
         self.calories = calories
-        self.category = category
-        self.ingredients = ingredients
+        self.category = CategoryModel(id: category["id"] as! String,
+                                      name: category["name"] as! String)
+        self.ingredients = appendIngredients
     }
 }

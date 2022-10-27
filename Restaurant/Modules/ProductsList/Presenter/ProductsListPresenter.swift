@@ -18,11 +18,15 @@ extension ProductsListPresenter: ProductsListModuleInput {
 }
 
 extension ProductsListPresenter: ProductsListViewOutput {
-
+    func viewDidLoad() {
+        interactor?.getProducts()
+    }
 }
 
 extension ProductsListPresenter: ProductsListInteractorOutput {
-
+    func successGetProducts(products: [ProductModel]) {
+        view?.updateView(products: products)
+    }
 }
 
 extension ProductsListPresenter: ProductsListRouterOutput {

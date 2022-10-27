@@ -140,4 +140,22 @@ class DataBaseService {
             }
         }
     }
+    
+    func getProducts(completion: @escaping (Result<[ProductModel], Error>) -> ()) {
+        productsReference.getDocuments { querySnapshot, error in
+            if let querySnapshots = querySnapshot?.documents {
+                var products = [ProductModel]()
+                
+                for  querySnapshot in querySnapshots {
+                    if let product = ProductModel(queryDocumentSnapshot: querySnapshot) {
+                        products.append(product)
+                    }
+                }
+            
+                completion(.success(products))
+            } else  if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
 }

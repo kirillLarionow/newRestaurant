@@ -1,5 +1,5 @@
 //
-//  ProductsListProductsListViewInput.swift
+//  ProductsListViewInput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -7,5 +7,5 @@
 //
 
 protocol ProductsListViewInput {
-
+    func updateView(products: [ProductModel])
 }

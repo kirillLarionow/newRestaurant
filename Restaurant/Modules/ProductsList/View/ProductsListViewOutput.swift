@@ -1,5 +1,5 @@
 //
-//  ProductsListProductsListViewOutput.swift
+//  ProductsListViewOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -7,5 +7,5 @@
 //
 
 protocol ProductsListViewOutput {
-
+    func viewDidLoad()
 }

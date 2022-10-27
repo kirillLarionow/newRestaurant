@@ -1,5 +1,5 @@
 //
-//  ProductsListProductsListInteractorOutput.swift
+//  ProductsListInteractorOutput.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ProductsListInteractorOutput {
-
+    func successGetProducts(products: [ProductModel])
 }

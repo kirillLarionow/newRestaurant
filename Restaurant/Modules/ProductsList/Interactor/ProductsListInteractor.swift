@@ -1,5 +1,5 @@
 //
-//  ProductsListProductsListInteractor.swift
+//  ProductsListInteractor.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -11,5 +11,15 @@ class ProductsListInteractor {
 }
 
 extension ProductsListInteractor: ProductsListInteractorInput {
-
+    func getProducts() {
+        DataBaseService.shared.getProducts { result in
+            switch result {
+            case .success(let products):
+                print(products)
+                self.output?.successGetProducts(products: products)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

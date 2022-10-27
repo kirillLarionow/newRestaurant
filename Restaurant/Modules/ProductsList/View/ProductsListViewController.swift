@@ -35,6 +35,8 @@ class ProductsListViewController: UIViewController {
     private let productsListTableViewCellID = "ProductsListTableViewCell"
     private var sections = [Section]()
     
+    var products: [ProductModel]? = []
+    
     var output: ProductsListViewOutput?
 
     override func viewDidLoad() {
@@ -50,6 +52,8 @@ class ProductsListViewController: UIViewController {
             Section(title: "Section 3", options: ["1", "2", "3"]),
             Section(title: "Section 4", options: ["1", "2", "3"])
         ]
+        
+        output?.viewDidLoad()
     }
 }
 
@@ -98,5 +102,7 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
 }
 
 extension ProductsListViewController: ProductsListViewInput {
-
+    func updateView(products: [ProductModel]) {
+        self.products = products
+    }
 }
