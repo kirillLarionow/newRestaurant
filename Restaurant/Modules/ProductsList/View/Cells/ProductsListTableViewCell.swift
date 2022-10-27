@@ -2,80 +2,101 @@
 //  ProductsListTableViewCell.swift
 //  Restaurant
 //
-//  Created by кирилл ларионов on 05.10.2022.
+//  Created by кирилл ларионов on 27.10.2022.
 //
 
 import UIKit
-import SnapKit
 import Then
+import SnapKit
 
-class ProductsListTableViewCell: UITableViewCell {
-    private lazy var categoryNameSectionLabel: UILabel = {
-        UILabel().then {
-            $0.textColor = UIColor.black
-            $0.font = .systemFont(ofSize: 16, weight: .medium)
-        }
-    }()
-    
-    private lazy var productNameRowLabel: UILabel = {
-        UILabel().then {
-            $0.textColor = UIColor.black
-            $0.font = .systemFont(ofSize: 16, weight: .light)
-        }
-    }()
-    
-   
-    lazy private var rigthImageView: UIImageView = {
-        let largeFont = UIFont.systemFont(ofSize: 24)
-        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "chevron.down.circle", withConfiguration: configuration)
-        let rigthImageView = UIImageView(image: image)
-        rigthImageView.tintColor = AppColor.Theme
-        return rigthImageView
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        contentView.addSubview(categoryNameSectionLabel)
-        contentView.addSubview(rigthImageView)
-        contentView.addSubview(productNameRowLabel)
+extension ProductsListViewController {
+    class ProductsListTableViewCell: UITableViewCell {
+        private lazy var productStackView: UIStackView = {
+            UIStackView().then {
+                $0.axis = .vertical
+                $0.distribution = .fillProportionally
+                
+                $0.addArrangedSubview(productNameLabel)
+                $0.addArrangedSubview(productModelNameLabel)
+                
+                $0.addArrangedSubview(categoryNameLabel)
+                $0.addArrangedSubview(productModelCategoryNameLabel)
+                
+                $0.addArrangedSubview(caloriesNameLabel)
+                $0.addArrangedSubview(productModelCaloriesLabel)
+            }
+        }()
         
-        categoryNameSectionLabel.snp.remakeConstraints { make in
-            make.top.bottom.equalTo(contentView.safeAreaLayoutGuide)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
-            make.trailing.equalTo(rigthImageView.snp.leading)
+        private lazy var productNameLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+                $0.text = "Товар:"
+            }
+        }()
+        
+        private lazy var categoryNameLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+                $0.text = "Категория:"
+            }
+        }()
+        
+        private lazy var caloriesNameLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+                $0.text = "Калорий:"
+            }
+        }()
+        
+        private lazy var productModelNameLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+            }
+        }()
+        
+        private lazy var productModelCategoryNameLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+            }
+        }()
+        
+        private lazy var productModelCaloriesLabel: UILabel = {
+            UILabel().then {
+                $0.textColor = UIColor.black
+                $0.font = .systemFont(ofSize: 14, weight: .bold)
+            }
+        }()
+        
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+            setupView()
         }
         
-        rigthImageView.snp.remakeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(10)
-            make.height.width.equalTo(24)
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
         }
         
-        productNameRowLabel.snp.remakeConstraints { make in
-            make.top.bottom.equalTo(contentView.safeAreaLayoutGuide)
-            make.leading.equalTo(contentView.safeAreaLayoutGuide).inset(10)
-            make.trailing.equalTo(rigthImageView.snp.leading)
+        private func setupView() {
+            contentView.addSubview(productStackView)
+            
+            makeConstraints()
         }
-    }
-    
-    func setup(category: Section, product: String, isShowImage: Bool) {
-        categoryNameSectionLabel.text = category.title
-        productNameRowLabel.text = product
-        rigthImageView.isHidden = isShowImage
         
-        if category.isOpened {
-            rigthImageView.image = UIImage(systemName: "chevron.up.circle")
-        } else {
-            rigthImageView.image = UIImage(systemName: "chevron.down.circle")
+        private func makeConstraints() {
+            productStackView.snp.makeConstraints { make in
+                make.leading.trailing.top.bottom.equalTo(contentView.safeAreaLayoutGuide)
+            }
+        }
+        
+        func setup(productModel: ProductModel) {
+            self.productModelNameLabel.text = productModel.name
+            self.productModelCategoryNameLabel.text = productModel.category.name
+            self.productModelCaloriesLabel.text = "\(productModel.calories)"
         }
     }
 }

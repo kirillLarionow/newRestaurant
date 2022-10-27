@@ -71,6 +71,7 @@
 		4743D98CF8D527AB16B9F158 /* ProductsTabAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF883493109AC6330E1CBF8 /* ProductsTabAssembly.swift */; };
 		4AD318A0C4DF9018EE816215 /* EditIngredientAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6530ABB3FB1EDF09734F2C2F /* EditIngredientAssembly.swift */; };
 		4B1E5A4928C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */; };
+		4B2908F3290ACA23008FD17D /* ProductsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2908F2290ACA23008FD17D /* ProductsListTableViewCell.swift */; };
 		4B3CB2462902CF30000AB9C4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CB2452902CF30000AB9C4 /* Enums.swift */; };
 		4B3E426829082D5E00D18B20 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E426729082D5E00D18B20 /* ProductModel.swift */; };
 		4B4999D79BE7153968721624 /* TabBarForEmployeesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAF453B596EF7AF6B79B0 /* TabBarForEmployeesInteractorInput.swift */; };
@@ -87,7 +88,6 @@
 		4BA9500628C0DC4D009CDDCF /* BaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA9500528C0DC4D009CDDCF /* BaseModule.swift */; };
 		4BB2ED7829002ECB0094C4E6 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2ED7729002ECB0094C4E6 /* CategoryModel.swift */; };
 		4BB2ED7B290032190094C4E6 /* CategoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB2ED7A290032190094C4E6 /* CategoriesListCell.swift */; };
-		4BBA354128ECE0B500B92344 /* ProductsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBA354028ECE0B500B92344 /* ProductsListTableViewCell.swift */; };
 		50B228C2B0AC3E9F3D332286 /* LoginPageAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEE3D350273CE2837C34FD4 /* LoginPageAssembly.swift */; };
 		525CFFB6603CFE677609260E /* CategoriesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4038190815E416BB00E9E1 /* CategoriesListAssembly.swift */; };
 		531B0F84127D69AF1DE57E90 /* SalesTabModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164CD47CAF748C5ABB3A1E15 /* SalesTabModuleOutput.swift */; };
@@ -286,6 +286,7 @@
 		47037EDA7771559637D52B05 /* WelcomePageAssembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WelcomePageAssembly.swift; sourceTree = "<group>"; };
 		47416A4BE2A9857A28A35154 /* ProductsTabViewOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabViewOutput.swift; sourceTree = "<group>"; };
 		4B1E5A4828C0E3C600C1C675 /* WelcomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B2908F2290ACA23008FD17D /* ProductsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewCell.swift; sourceTree = "<group>"; };
 		4B3CB2452902CF30000AB9C4 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4B3E426729082D5E00D18B20 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		4B5896BA4A1374C767F8B666 /* ProductsTabModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabModuleInput.swift; sourceTree = "<group>"; };
@@ -305,7 +306,6 @@
 		4BA9500528C0DC4D009CDDCF /* BaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModule.swift; sourceTree = "<group>"; };
 		4BB2ED7729002ECB0094C4E6 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		4BB2ED7A290032190094C4E6 /* CategoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListCell.swift; sourceTree = "<group>"; };
-		4BBA354028ECE0B500B92344 /* ProductsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewCell.swift; sourceTree = "<group>"; };
 		4C8B18ACCFAE7CC0E13D8B19 /* ChecksTabInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChecksTabInteractor.swift; sourceTree = "<group>"; };
 		4C9A1AAEF74586D68C12C80D /* ProductsTabViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabViewController.swift; sourceTree = "<group>"; };
 		4E0FE584E838DAA691FCAE51 /* SalesTabRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SalesTabRouter.swift; sourceTree = "<group>"; };
@@ -986,7 +986,7 @@
 		4BBA353F28ECE09D00B92344 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				4BBA354028ECE0B500B92344 /* ProductsListTableViewCell.swift */,
+				4B2908F2290ACA23008FD17D /* ProductsListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1737,7 +1737,6 @@
 				45C2182A0EC3406D90E92412 /* WelcomePageModuleOutput.swift in Sources */,
 				F91EE3C65D260612E0FD6C0A /* WelcomePagePresenter.swift in Sources */,
 				EE44D568DA968652B908A599 /* WelcomePageInteractorInput.swift in Sources */,
-				4BBA354128ECE0B500B92344 /* ProductsListTableViewCell.swift in Sources */,
 				EE5C75EFEE9A8629E0571E8C /* WelcomePageInteractorOutput.swift in Sources */,
 				34537FFC6135EC0767535BEE /* WelcomePageInteractor.swift in Sources */,
 				320799BA63B5908FBAB38A59 /* WelcomePageRouterInput.swift in Sources */,
@@ -1752,6 +1751,7 @@
 				437024B099E5C86C9143D0E7 /* LoginPageModuleInput.swift in Sources */,
 				4BB2ED7829002ECB0094C4E6 /* CategoryModel.swift in Sources */,
 				7A0D4121055C469441543E7E /* LoginPageModuleOutput.swift in Sources */,
+				4B2908F3290ACA23008FD17D /* ProductsListTableViewCell.swift in Sources */,
 				92D06E603823D0AABCADE32F /* LoginPagePresenter.swift in Sources */,
 				22C51B8F0BC6DDB5539D64A7 /* LoginPageInteractorInput.swift in Sources */,
 				F12D57FE9C227048877285DE /* LoginPageInteractorOutput.swift in Sources */,
