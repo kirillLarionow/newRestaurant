@@ -74,6 +74,7 @@
 		4B2908F3290ACA23008FD17D /* ProductsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2908F2290ACA23008FD17D /* ProductsListTableViewCell.swift */; };
 		4B3CB2462902CF30000AB9C4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3CB2452902CF30000AB9C4 /* Enums.swift */; };
 		4B3E426829082D5E00D18B20 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3E426729082D5E00D18B20 /* ProductModel.swift */; };
+		4B3F0C66290C12D20050CC8E /* Animate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3F0C65290C12D20050CC8E /* Animate+Extensions.swift */; };
 		4B4999D79BE7153968721624 /* TabBarForEmployeesInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5DAF453B596EF7AF6B79B0 /* TabBarForEmployeesInteractorInput.swift */; };
 		4B6BE48B28F60474005A09E7 /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48A28F60473005A09E7 /* DataBaseService.swift */; };
 		4B6BE48E28F61D45005A09E7 /* IngredientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */; };
@@ -289,6 +290,7 @@
 		4B2908F2290ACA23008FD17D /* ProductsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListTableViewCell.swift; sourceTree = "<group>"; };
 		4B3CB2452902CF30000AB9C4 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		4B3E426729082D5E00D18B20 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		4B3F0C65290C12D20050CC8E /* Animate+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animate+Extensions.swift"; sourceTree = "<group>"; };
 		4B5896BA4A1374C767F8B666 /* ProductsTabModuleInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProductsTabModuleInput.swift; sourceTree = "<group>"; };
 		4B6BE48A28F60473005A09E7 /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		4B6BE48D28F61D45005A09E7 /* IngredientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientModel.swift; sourceTree = "<group>"; };
@@ -910,6 +912,7 @@
 			isa = PBXGroup;
 			children = (
 				4B70D5F128C3FE6900DC317E /* AppColors.swift */,
+				4B3F0C65290C12D20050CC8E /* Animate+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1823,6 +1826,7 @@
 				46D51F6FB409559157B46240 /* ChecksTabPresenter.swift in Sources */,
 				32B16FDBD04EF6398E2FF64C /* ChecksTabInteractorInput.swift in Sources */,
 				23875243FFC4FAD3C4CE89F1 /* ChecksTabInteractorOutput.swift in Sources */,
+				4B3F0C66290C12D20050CC8E /* Animate+Extensions.swift in Sources */,
 				7ABE59F4962AC1B56F881BD5 /* ChecksTabInteractor.swift in Sources */,
 				08F9CE9144067539DD2525DB /* ChecksTabRouterInput.swift in Sources */,
 				BC0E620A477ACEA2945D0286 /* ChecksTabRouterOutput.swift in Sources */,

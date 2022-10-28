@@ -17,3 +17,8 @@ enum IngredientsListState {
     case choice
 }
 
+enum ProductsListState {
+    case loaded
+    case normal
+}
+

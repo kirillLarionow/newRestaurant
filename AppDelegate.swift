@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = welcomePageModule.view
         }
    
-        
         window?.makeKeyAndVisible()
         FirebaseApp.configure()
         return true

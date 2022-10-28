@@ -22,13 +22,23 @@ class ProductsListViewController: UIViewController {
     
     private let productsListTableViewCellID = "ProductsListTableViewCell"
    
+    private lazy var customIndicatorImageView: UIImageView = {
+        UIImageView().then {
+            $0.isHidden = true
+            $0.image = UIImage(named: "loader")
+        }
+    }()
+    
+    var timer: Timer?
     
     var products: [ProductModel]? = []
+    var productsListState: ProductsListState = .loaded
     
     var output: ProductsListViewOutput?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         output?.viewDidLoad()
         setupView()
     }
@@ -36,17 +46,59 @@ class ProductsListViewController: UIViewController {
 
 extension ProductsListViewController {
     private func setupView() {
-        view.backgroundColor = .white
-        title = "Список всех товаров"
-        view.addSubview(tableView)
+        switch productsListState {
+        case .loaded:
+            title = "Загрузка товаров.."
+            customIndicatorImageView.isHidden = false
+            view.addSubview(customIndicatorImageView)
+            startTimer()
+            makeConstraints()
+        case .normal:
+            title = "Список всех товаров"
+            customIndicatorImageView.isHidden = true
+            view.addSubview(tableView)
+            stopTimer()
+            makeConstraints()
+        }
         
-        makeConstraints()
+        view.backgroundColor = .white
     }
     
     private func makeConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.top.bottom.trailing.leading.equalTo(view.safeAreaLayoutGuide)
+        switch productsListState {
+        case .loaded:
+            customIndicatorImageView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.height.width.equalTo(50)
+            }
+            
+        case .normal:
+            tableView.snp.makeConstraints { make in
+                make.top.bottom.trailing.leading.equalTo(view.safeAreaLayoutGuide)
+            }
         }
+    }
+    
+    @objc func animateView() {
+        UIView.animate(withDuration: 0.8, delay: 0.0, options: .curveLinear, animations: {
+            self.customIndicatorImageView.transform = self.customIndicatorImageView.transform.rotated(by: CGFloat(Double.pi))
+        }, completion: { (finished) in
+            if self.timer != nil {
+                self.timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+            }
+        })
+    }
+    
+    func startTimer() {
+        self.customIndicatorImageView.isHidden = false
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval:0.0, target: self, selector: #selector(self.animateView), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
 }
 
@@ -67,6 +119,9 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
             fatalError()
         }
         
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        
         cell.setup(productModel: productModel)
         
         return cell
@@ -79,6 +134,8 @@ extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource
 
 extension ProductsListViewController: ProductsListViewInput {
     func updateView(products: [ProductModel]) {
+        self.productsListState = .normal
+        setupView()
         self.products = products
         tableView.reloadData()
     }
