@@ -1,5 +1,5 @@
 //
-//  TabBarForEmployeesTabBarForEmployeesViewController.swift
+//  TabBarForEmployeesViewController.swift
 //  Restaurant
 //
 //  Created by Kirill Larionov on 04/10/2022.
@@ -29,19 +29,21 @@ extension TabBarForEmployeesViewController {
         let productsTabModule = ProductsTabModule.createModule()
         let salesTabModule = SalesTabModule.createModule()
         let checksTabModule  = ChecksTabModule.createModule()
+        let settingsTabModule = SettingsTabModule.createModule()
         
         productsTabModule.view.title = "Товары"
         salesTabModule.view.title = "Продажи"
         checksTabModule.view.title = "Чеки"
+        settingsTabModule.view.title = "Настройки"
         
-        setViewControllers([productsTabModule.view, salesTabModule.view, checksTabModule.view],
+        setViewControllers([productsTabModule.view, salesTabModule.view, checksTabModule.view, settingsTabModule.view],
                            animated: true)
         
         guard let tabBarItems = tabBar.items else {
             return
         }
         
-        let tabBarImages = ["square.grid.3x3", "cart", "doc.plaintext"]
+        let tabBarImages = ["square.grid.3x3", "cart", "doc.plaintext", "gearshape"]
         
         for images in 0..<tabBarImages.count {
             tabBarItems[images].image = UIImage(systemName: tabBarImages[images])
