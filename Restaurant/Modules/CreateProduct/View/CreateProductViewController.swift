@@ -346,6 +346,13 @@ extension CreateProductViewController: CreateProductViewInput {
         
         present(alertController, animated: true)
     }
+    
+    func showErrorAlert(message: String) {
+        let alertController = UIAlertController(title: "Ошибка", message: "Заполните поля!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        
+        present(alertController, animated: true)
+    }
 }
 
 extension CreateProductViewController: UITextViewDelegate {

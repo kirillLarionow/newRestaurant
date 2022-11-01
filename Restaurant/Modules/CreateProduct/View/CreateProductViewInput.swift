@@ -18,5 +18,6 @@ protocol CreateProductViewInput {
     
     func updateCategory(category: CategoryModel)
     func updateIngredientsAndCalories(ingredients: [IngredientModel])
-    func showSuccesCreateProductAlert() 
+    func showSuccesCreateProductAlert()
+    func showErrorAlert(message: String)
 }

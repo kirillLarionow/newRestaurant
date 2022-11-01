@@ -50,6 +50,7 @@ extension CreateProductPresenter: CreateProductViewOutput {
             let productIngredietns = view?.productIngredietns,
             let productCalories = view?.productCalories
         else {
+            view?.showErrorAlert(message: "Заполните поля")
             return
         }
         
