@@ -22,7 +22,8 @@ target 'Restaurant' do
   pod 'YPImagePicker'
   pod 'TransitionButton'
   pod 'Then'
-
+  
+  pod 'Firebase'
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseCore'
